@@ -1,0 +1,7 @@
+export {default as Hero} from './hero/hero'
+export {default as Profile} from './profile/profile'
+export {default as Experience} from './experience/experience'
+export {default as Contact} from './contact/contact'
+export {default as AboutHero} from './hero-about/hero-about'
+export {default as AboutProfile} from './profile-about/profile-about'
+export {default as AboutFooter} from './footer-about/footer-about'
