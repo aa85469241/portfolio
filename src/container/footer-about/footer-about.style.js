@@ -131,6 +131,7 @@ export const CopyRight = styled.div`
     align-items: center;
     gap: .2rem;
     span {
+        color: ${props => props.theme.text};
         letter-spacing: 0.5px;
     }
 `
