@@ -8,9 +8,6 @@ export const ContactContainer = styled.div`
     width: 100%;    
     height: calc(100% - 50px);
     overflow: hidden;
-    ${media.mobile} {
-        padding-top: 2rem;
-    }
 `
 
 export const ContactSection = styled(motion.section)`
