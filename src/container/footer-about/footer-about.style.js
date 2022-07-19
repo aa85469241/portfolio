@@ -134,4 +134,7 @@ export const CopyRight = styled.div`
         color: ${props => props.theme.text};
         letter-spacing: 0.5px;
     }
+    a {
+        color: ${props => props.theme.text};
+    }
 `
