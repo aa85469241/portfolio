@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { motion, useAnimation, useMotionValue, useTransform } from 'framer-motion'
-import { Bar, Flex } from '../../styles/GlobalStyles'
+import { Bar } from '../../styles/GlobalStyles'
 // constants
 import { data, images } from '../../constants'
 import { variants } from '../../constants'
@@ -67,107 +67,105 @@ const Experience = () => {
     return (
         <ExpContainer>
             <AnimeTrigger threshold='0.5'>
-                <Flex>
-                    <Root>
+                <Root>
+                    <motion.div
+                        className="title-wrapper"
+                        variants={variants.inViewVariants.zoomInFromX}
+                        transition={{ duration: .5 }}
+                    >
+                        <motion.h1 className="experience-title">Experiences</motion.h1>
+                    </motion.div>
+                    <LockChecker initial={false} animate={`unlock${groupSelected}`}>
+                        <motion.div className='lock-checker' variants={variants.cardVariants.lockCheck[0]}>1</motion.div>
+                        <motion.div className='lock-checker' variants={variants.cardVariants.lockCheck[1]}>2</motion.div>
+                        <motion.div className='lock-checker' variants={variants.cardVariants.lockCheck[2]}>3</motion.div>
+                    </LockChecker>
+                    <Carousel ref={carousel}>
+                        {/* TimeLine border */}
+                        <Bar top variants={variants.inViewVariants.bar} />
+                        <Bar bottom variants={variants.inViewVariants.bar} />
+                        <Bar left variants={variants.inViewVariants.bar} />
+                        <Bar right variants={variants.inViewVariants.bar} />
                         <motion.div
-                            className="title_wrapper"
-                            variants={variants.inViewVariants.zoomInFromX}
-                            transition={{ duration: .5 }}
+                            className="inner-carousel"
+                            ref={scroller}
+                            style={{ x: scrollX }}
+                            drag='x'
+                            dragConstraints={{ right: 0, left: -scrollerWidth }}
+                            onMouseDown={() => setCursorType('drag_active')}
+                            onMouseUp={() => setCursorType('drag_hovered')}
+                            onHoverStart={() => setCursorType('drag_hovered')}
+                            onHoverEnd={setCursorType}
                         >
-                            <motion.h1 className="experience_title">Experiences</motion.h1>
-                        </motion.div>
-                        <LockChecker initial={false} animate={`unlock${groupSelected}`}>
-                            <motion.div className='lock-checker' variants={variants.cardVariants.lockCheck[0]}>1</motion.div>
-                            <motion.div className='lock-checker' variants={variants.cardVariants.lockCheck[1]}>2</motion.div>
-                            <motion.div className='lock-checker' variants={variants.cardVariants.lockCheck[2]}>3</motion.div>
-                        </LockChecker>
-                        <Carousel ref={carousel}>
-                            {/* TimeLine border */}
-                            <Bar top variants={variants.inViewVariants.bar} />
-                            <Bar bottom variants={variants.inViewVariants.bar} />
-                            <Bar left variants={variants.inViewVariants.bar} />
-                            <Bar right variants={variants.inViewVariants.bar} />
-                            <motion.div
-                                className="inner-carousel"
-                                ref={scroller}
-                                style={{ x: scrollX }}
-                                drag='x'
-                                dragConstraints={{ right: 0, left: -scrollerWidth }}
-                                onMouseDown={() => setCursorType('drag_active')}
-                                onMouseUp={() => setCursorType('drag_hovered')}
-                                onHoverStart={() => setCursorType('drag_hovered')}
-                                onHoverEnd={setCursorType}
-                            >
-                                {data.experiences.map((info, i) =>
-                                    <InfoContainer
-                                        key={`card-${i}`} id={`card-${i}`}
-                                        initial={false}
-                                        animate={control}
-                                    >
-                                        <Lock
-                                            isFirst={info.isFirst}
-                                            group={info.group}
-                                            groupSelected={groupSelected}
-                                            groupLength={info.groupLength}
-                                            setGroupSelected={setGroupSelected}
-                                            control={control}
-                                        />
+                            {data.experiences.map((info, i) =>
+                                <InfoContainer
+                                    key={`card-${i}`} id={`card-${i}`}
+                                    initial={false}
+                                    animate={control}
+                                >
+                                    <Lock
+                                        isFirst={info.isFirst}
+                                        group={info.group}
+                                        groupSelected={groupSelected}
+                                        groupLength={info.groupLength}
+                                        setGroupSelected={setGroupSelected}
+                                        control={control}
+                                    />
+                                    <motion.div
+                                        className='period'
+                                        variants={variants.cardVariants.period[info.group - 1]}
+                                    >{info.date}</motion.div>
+                                    {info.card === true
+                                        ?
+                                        <Card group={info.group}>
+                                            <section className='experience_card_content'>
+                                                <motion.h1
+                                                    className='experience_card_title'
+                                                    variants={variants.cardVariants.title[info.group - 1]}
+                                                >{info.title}</motion.h1>
+                                                <motion.ul className='experience_card_detail'>
+                                                    {info.entries.map((entry, i) =>
+                                                        <motion.li
+                                                            custom={i}
+                                                            key={'line-' + i}
+                                                            variants={variants.cardVariants.entry[info.group - 1]}
+                                                        >{entry.info}</motion.li>
+                                                    )}
+                                                </motion.ul>
+                                            </section>
+                                        </Card>
+                                        :
                                         <motion.div
-                                            className='period'
-                                            variants={variants.cardVariants.period[info.group - 1]}
-                                        >{info.date}</motion.div>
-                                        {info.card === true
-                                            ?
-                                            <Card group={info.group}>
-                                                <section className='experience_card_content'>
-                                                    <motion.h1
-                                                        className='experience_card_title'
-                                                        variants={variants.cardVariants.title[info.group - 1]}
-                                                    >{info.title}</motion.h1>
-                                                    <motion.ul className='experience_card_detail'>
-                                                        {info.entries.map((entry, i) =>
-                                                            <motion.li
-                                                                custom={i}
-                                                                key={'line-' + i}
-                                                                variants={variants.cardVariants.entry[info.group - 1]}
-                                                            >{entry.info}</motion.li>
-                                                        )}
-                                                    </motion.ul>
-                                                </section>
-                                            </Card>
-                                            :
-                                            <motion.div
-                                                data-dashed-board
+                                            data-dashed-board
+                                            variants={{
+                                                unlock2: { opacity: [0, 1] }
+                                            }}
+                                            transition={{ when: 'beforeChildren', delay: 0.3 }}
+                                        >
+                                            <motion.img
+                                                src={images.airplane}
+                                                alt="airplane"
                                                 variants={{
-                                                    unlock2: { opacity: [0, 1] }
+                                                    unlock2: {
+                                                        opacity: [0, 1, 1, 1],
+                                                        y: [150, 150, -250, -150],
+                                                        scale: [1, 1, 1, 1.5],
+                                                        transition: { duration: 2.5, times: [0, 0.1, 0.45, 1] }
+                                                    }
                                                 }}
-                                                transition={{ when: 'beforeChildren', delay: 0.8 }}
-                                            >
-                                                <motion.img
-                                                    src={images.airplane}
-                                                    alt="airplane"
-                                                    variants={{
-                                                        unlock2: {
-                                                            opacity: [0, 1, 1, 1],
-                                                            y: [150, 150, -250, -150],
-                                                            scale: [1, 1, 1, 1.5],
-                                                            transition: { duration: 2.5, delay: 0.5, times: [0, 0.1, 0.45, 1] }
-                                                        }
-                                                    }}
-                                                />
-                                                <motion.span
-                                                    variants={{ unlock2: { opacity: 1, transition: { duration: .5, delay: 2.8 } } }}
-                                                >study tour and working holiday</motion.span>
-                                            </motion.div>}
-                                    </InfoContainer>
-                                )}
-                            </motion.div>
-                            <ProgressBar variants={variants.inViewVariants.progressBar}>
-                                <motion.div className='progress-bar' style={{ width: barWidth }} />
-                            </ProgressBar>
-                        </Carousel>
-                    </Root>
-                </Flex>
+                                            />
+                                            <motion.span
+                                                variants={{ unlock2: { opacity: 1, transition: { duration: .5, delay: 2.8 } } }}
+                                            >study tour and working holiday</motion.span>
+                                        </motion.div>}
+                                </InfoContainer>
+                            )}
+                        </motion.div>
+                        <ProgressBar variants={variants.inViewVariants.progressBar}>
+                            <motion.div className='progress-bar' style={{ width: barWidth }} />
+                        </ProgressBar>
+                    </Carousel>
+                </Root>
             </AnimeTrigger >
         </ExpContainer >
     )

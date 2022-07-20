@@ -8,14 +8,13 @@ export const Banner = styled.div`
     inset: 0;
     width: 100%;
     height: 100%;
+    padding: 1rem;
 `
 
 export const Section = styled(motion.section)`
     position: relative;
     width: 100%;
-    height: calc(100vh - 120px);
-    margin: 3.5rem 0 auto auto;
-    padding: 3rem 2rem 0;
+    height: 100%;
     .wrapper {
         width: 100%;
         height: 100%;
@@ -41,9 +40,6 @@ export const Row = styled.div`
             -webkit-text-stroke: 2px;
             -webkit-text-fill-color: transparent;
         }
-        &:nth-child(1) {
-            margin-left: clamp(0.00rem, calc(-42.72rem + 68.90vw), 21.88rem);;
-        }
         ${media.laptop} {
             white-space: normal;
         }
@@ -55,7 +51,6 @@ export const RowText = styled(motion.span)`
     font-family: var(--font-family-hero);
     color: ${props => props.theme.text};
     position: relative;
-    margin-left: clamp(0.00rem, calc(-42.72rem + 68.90vw), 21.88rem);;
     letter-spacing: 5px;
     white-space: nowrap;
     ${media.laptop} {

@@ -5,7 +5,7 @@ import { variants, data } from '../../constants'
 import { media } from '../../styles/BreakPoint'
 
 const SvgContainer = styled(motion.div)`
-    grid-row-end: -4;
+    grid-row-end: -3;
     display: block;
     width: 90%;
     margin-inline: auto;
@@ -18,8 +18,12 @@ const SvgContainer = styled(motion.div)`
             fill: none;
         }
     }
+    ${media.laptop} {
+        grid-row: 4;
+    }
     ${media.mobile} {
         width: 100%;
+        grid-row: 6;
     }
 `
 

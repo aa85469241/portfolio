@@ -72,11 +72,11 @@ export const GlobalStyles = createGlobalStyle`
 
     html {
         font-size: 16px;
+        font-family: var(--font-family-body);
         -webkit-font-smoothing: antialiased;
     }
 
     body {
-        font-family: var(--font-family-body);
         background-color: ${props => props.theme.background};
         line-hight: 1.5;
         overflow-x: hidden;

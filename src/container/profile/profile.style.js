@@ -7,16 +7,14 @@ export const ProfileContainer = styled.div`
     position: relative;
     inset: 0;
     width: 100%;
-    height: calc(100% - 80px);
-    padding: 2rem;
+    height: 100%;
     .profile_wrapper {
-        width: 82%;
+        width: 100%;
         height: 100%;
-        margin-inline: auto 0;
-        border: 2px solid black;
         display: grid;
         grid-template-columns: 55% 45%;
         grid-template-rows: 80% 20%;
+        padding: 1rem;
         /* grid-template-areas: 
             "section selfie"
             "button selfie"; */

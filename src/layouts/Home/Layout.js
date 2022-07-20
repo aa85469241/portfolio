@@ -8,14 +8,19 @@ import { GlobalStyles } from '../../styles/GlobalStyles'
 import { Header, Cursor, Pagination } from '../../components'
 import { useGlobalStateContext } from '../../context/GlobalContext'
 import { images } from '../../constants'
+import { media } from '../../styles/BreakPoint'
 
 
 const LayoutContainer = styled(motion.div)`
-    position: relative;
-    height: calc(100vh - 20px);
-    background-color: ${props => props.theme.background};
-    margin: 10px;
-    border: 2px solid ${props => props.theme.border};
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 10% auto;
+    grid-template-areas: 
+        "header header"
+        "pagination main";
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
     overflow: hidden;
     &::before {
         content: '';
@@ -26,6 +31,36 @@ const LayoutContainer = styled(motion.div)`
         background: url(${images.noise});
         opacity: 0.05;
     }
+    ${media.laptop} {
+        grid-template-columns: auto;
+        grid-template-rows: 12% auto 10%;
+        grid-template-areas: 
+            "header"
+            "main"
+            "pagination";
+    }
+`
+
+const Frame = styled.div`
+    position: fixed;
+    inset: 0;
+    padding: 20px;
+    &::before {
+        content: '';
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+        border: 2px solid ${props => props.theme.border};
+    }
+`
+
+const Main = styled.main`
+    grid-area: main;
+    display: block;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
 `
 
 export const Layout = ({
@@ -60,8 +95,9 @@ export const Layout = ({
                 <GlobalStyles />
                 <Header />
                 <Pagination pagination={pagination} setPagination={setPagination} />
+                <Frame />
                 <Cursor />
-                <main>{children}</main>
+                <Main>{children}</Main>
             </LayoutContainer>
         </ThemeProvider>
     )

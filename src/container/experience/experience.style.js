@@ -8,55 +8,64 @@ export const ExpContainer = styled.div`
     position: relative;
     inset: 0;
     width: 100%;
-    height: calc(100% - 50px);
-
-    .title_wrapper {
+    height: 100%;
+    padding-block: 1rem;
+    .title-wrapper {
+        grid-row-end: 2;
+        grid-column-start: 2;
         position: absolute;
-        top: -8%;
-        left: 10%;
+        z-index: 10;
         h1 {
-        font-size: var(--step-title);
-        font-weight: 600;
-        font-family: var(--font-family-main);
-        letter-spacing: 5px;
-        text-transform: uppercase;
-        color: ${props => props.theme.text};
-        margin: 0;
-        text-shadow: 3px 3px 3px grey;
-        &::first-letter {
-            font-size: calc(var(--step-title) * 1.2);
+            font-size: var(--step-title);
+            font-weight: 600;
+            font-family: var(--font-family-main);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: ${props => props.theme.text};
+            margin: 0;
+            text-shadow: 3px 3px 3px grey;
+            &::first-letter {
+                font-size: calc(var(--step-title) * 1.2);
+            }
         }
+    }
+    ${media.laptop} {
+        padding-left: 0;
+    }
+    ${media.tablet} {
+        .title-wrapper {
+            margin-left: 1rem;
+            grid-column-start: 1;
         }
     }
 `
 
 export const Root = styled.section`
     position: relative;
-    height: 80%;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(14, 1fr);
-    grid-template-rows: auto;
+    grid-template-rows: repeat(8, 1fr);
     grid-margin: 3rem;
-    grid-gap: 3rem;
+    grid-gap: 0 3rem;
     margin: 0 auto;
-    padding-top: 2.5rem;
     ${media.laptop} {
         grid-template-columns: repeat(9, 1fr);
         grid-margin: 1.5rem;
-        grid-gap: 1.5rem;
-        padding-top: 2rem;
+        grid-gap: 0 1.5rem;
     }
     ${media.tablet} {
         grid-template-columns: repeat(7, 1fr);
         grid-margin: 1rem;
-        grid-gap: 1rem;
-        padding-top: 1.1rem;
+        grid-gap: 0 1rem;
     }
 `
 
 export const Carousel = styled.div`
     position: relative;
-    grid-column: 4 / -1;
+    bottom: 0;
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
     overflow: hidden;
     .inner-carousel {
         position: relative;
@@ -67,8 +76,7 @@ export const Carousel = styled.div`
         padding: 0 1rem;
     }
     ${media.laptop} {
-        height: 92%;
-        grid-column: 3 / -1;
+        grid-column: 2 / -1;
     }
     ${media.tablet} {
         margin-inline: 2px;
@@ -77,9 +85,10 @@ export const Carousel = styled.div`
 `
 
 export const LockChecker = styled(motion.div)`
-    grid-column-end: 4;
+    grid-column-end: 2;
+    grid-row: 2 / -1;
     position: relative;
-    top: 50px;
+    top: 0;
     height: fit-content;
     transform: translate(50px, 0);
     .lock-checker {
@@ -94,7 +103,7 @@ export const LockChecker = styled(motion.div)`
         opacity: 0.1;
     }
     ${media.laptop} {
-        grid-column-end: 3;
+        grid-column-end: 2;
         transform: translate(25px, 0);
     }
     ${media.tablet} {

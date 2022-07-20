@@ -3,15 +3,16 @@ import {media} from '../../styles/BreakPoint'
 import { motion } from 'framer-motion'
 
 export const PaginationContainer = styled.div`
+    grid-area: pagination;
     position: fixed;
     left: 0;
     bottom: 0;
     margin: 3% 3%;
     z-index: 20;
     ${media.laptop} {
-        width: calc(100% - 20px);
-        height: 70px;
-        margin: 0 10px;
+        left: 0;
+        right: 0;
+        padding: 1rem;
     }
 `
 

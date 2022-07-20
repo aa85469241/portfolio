@@ -6,22 +6,21 @@ export const ContactContainer = styled.div`
     position: relative;
     inset: 0;
     width: 100%;    
-    height: calc(100% - 50px);
+    height: 100%;
+    padding-block: 1rem;
     overflow: hidden;
 `
 
 export const ContactSection = styled(motion.section)`
     position: relative;
     width: 100%;
-    height: calc(80vh - 2rem);
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    height: 95%;
+    display: grid;
+    grid-template-rows: 20% auto;
     .leading-text-wrapper {
-        max-width: 60%;
+        max-width: 70%;
         line-height: 2;
+        margin-inline: auto;
         .contact-leading-text {
             display: inline-block;
             font-size: clamp(1.25rem, calc(1.01rem + 0.92vw), 1.88rem);
@@ -52,16 +51,16 @@ export const ContactSection = styled(motion.section)`
 
 export const ContactInfo = styled(motion.div)`
     position: absolute;
-    top: 8%;
+    top: 0;
     width: 75vw;
-    height: 70vh;
+    height: 60vh;
     left: 50%;
     display: grid;
     grid-template-rows: repeat(9, 1fr);
     justify-content: center;
     transform: translateX(-50%);
     .contact-number {
-        grid-row-end: -3;
+        grid-row-end: -2;
         display: block;
         color: ${props => props.theme.text};
         font-size: var(--step-contact);
@@ -71,7 +70,7 @@ export const ContactInfo = styled(motion.div)`
         filter: ${props => props.theme.shadow};
     }
     .crack {
-        grid-row-end: -3;
+        grid-row-end: -2;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -81,12 +80,11 @@ export const ContactInfo = styled(motion.div)`
         z-index: -1;
     }
     .close-button {
-        grid-row-end: -3;
-        position: absolute;
-        bottom: 0; left: 50%;
+        grid-row-end: -1;
+        position: relative;
         width: 200px;
         height: 50px;
-        transform: translate(-50%, 150%);
+        margin-inline: auto;
         path {
             stroke-width: 3px;
             stroke: ${props => props.theme.border};
@@ -97,6 +95,12 @@ export const ContactInfo = styled(motion.div)`
         top: 15%;
         width: 83vw;
         height: 55vh;
+        .contact-number, .crack {
+            grid-row-end: 6;
+        }
+        .close-button {
+            grid-row-end: 8;
+        }
     }
     ${media.tablet} {
         top: 21%;
@@ -105,22 +109,27 @@ export const ContactInfo = styled(motion.div)`
     }
     ${media.mobile} {
         top: 18%;
+        .contact-number, .crack {
+            grid-row-end: -3;
+        }
+        .close-button {
+            grid-row-end: -2;
+        }
     }
 `
 
 export const Buttons = styled(motion.div)`
     position: relative;
     color: ${props => props.theme.text};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 95%;
+    display: block;
+    align-self: center;
+    margin-inline: auto;
 `
 
 export const BackToTop = styled(motion.div)`
     position: absolute;
-    bottom: 15%;
-    right: 5%;
+    bottom: 1rem;
+    right: 3%;
     width: fit-content;
     height: auto;
     font-family: var(--font-family-contact);

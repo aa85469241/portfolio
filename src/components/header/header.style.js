@@ -3,13 +3,13 @@ import { media } from '../../styles/BreakPoint'
 import { motion } from 'framer-motion'
 
 export const HeaderNav = styled.header`
-    /* grid-area: header; */
+    grid-area: header;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: fit-content;
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     z-index: 102;
     ${media.mobile} {
         padding: 1.5rem 0;
