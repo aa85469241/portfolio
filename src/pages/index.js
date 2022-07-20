@@ -18,14 +18,14 @@ const Home = () => {
 
     return (
         <Layout pagination={pagination} setPagination={setPagination}>
-            {/* <AnimatePresence>
+            <AnimatePresence>
                 {isLoading
                     ? <motion.div key='loader'>
                         <Loader isLoading={isLoading} setIsLoading={setIsLoading} />
                     </motion.div>
                     : <ReactPageScroller
                         containerWidth={'100%'}
-                        containerHeight={'100%'}
+                        containerHeight={'80vh'}
                         renderAllPagesOnFirstRender={true}
                         customPageNumber={pagination}
                         onBeforePageScroll={handlePageChange}
@@ -36,20 +36,7 @@ const Home = () => {
                         <Experience />
                         <Contact setPagination={setPagination} />
                     </ReactPageScroller>}
-            </AnimatePresence> */}
-            <ReactPageScroller
-                containerWidth={'100%'}
-                containerHeight={'80vh'}
-                renderAllPagesOnFirstRender={true}
-                customPageNumber={pagination}
-                onBeforePageScroll={handlePageChange}
-                pageOnChange={handlePageChange}
-            >
-                <Hero setPagination={setPagination} isLoading={isLoading} />
-                <Profile />
-                <Experience />
-                <Contact setPagination={setPagination} />
-            </ReactPageScroller>
+            </AnimatePresence>
         </Layout>
     )
 }
