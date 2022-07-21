@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReactPageScroller from 'react-page-scroller'
 // containers
@@ -11,11 +11,12 @@ const Home = () => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [pagination, setPagination] = useState(0)
+    const [onDrag, setOnDrag] = useState(false)
 
     const handlePageChange = number => {
         setPagination(number)
     }
-
+    
     return (
         <Layout pagination={pagination} setPagination={setPagination}>
             <AnimatePresence>
@@ -30,10 +31,12 @@ const Home = () => {
                         customPageNumber={pagination}
                         onBeforePageScroll={handlePageChange}
                         pageOnChange={handlePageChange}
+                        blockScrollUp={onDrag ? true : false}
+                        blockScrollDown={onDrag ? true : false}
                     >
                         <Hero setPagination={setPagination} isLoading={isLoading} />
                         <Profile />
-                        <Experience />
+                        <Experience setOnDrag={setOnDrag} />
                         <Contact setPagination={setPagination} />
                     </ReactPageScroller>}
             </AnimatePresence>

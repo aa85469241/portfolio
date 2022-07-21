@@ -37,7 +37,7 @@ const Card = ({ group, children }) => {
     )
 }
 
-const Experience = () => {
+const Experience = ({ setOnDrag }) => {
     // let component re-render while resizing
     const [width] = useWindowSize()
     // group select && unlock
@@ -92,6 +92,8 @@ const Experience = () => {
                             style={{ x: scrollX }}
                             drag='x'
                             dragConstraints={{ right: 0, left: -scrollerWidth }}
+                            onDrag={() => setOnDrag(true)}
+                            onDragEnd={() => setTimeout(() => { setOnDrag(false) }, 1000)}
                             onMouseDown={() => setCursorType('drag_active')}
                             onMouseUp={() => setCursorType('drag_hovered')}
                             onHoverStart={() => setCursorType('drag_hovered')}

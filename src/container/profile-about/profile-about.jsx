@@ -6,6 +6,7 @@ import { data, profileVariants } from '../../constants'
 import { AnimeTrigger, SplitLetters } from '../../components'
 // hooks
 import useScrollElement from '../../hooks/useScrollElement'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 // styles
 import {
     ProfileContainer,
@@ -26,6 +27,7 @@ import {
 const AboutProfile = () => {
     const { scrollY } = useViewportScroll();
     const [nextHide, setNextHide] = useState(false)
+    const isMatch = useMediaQuery('(max-width: 525px)')
 
     // personalInfo 
     const personalRef = useRef(null);
@@ -136,7 +138,7 @@ const AboutProfile = () => {
                     }
                     <Autobiography>
                         {data.autobiography.map((para) =>
-                            <AnimeTrigger threshold='1' key={para.id}>
+                            <AnimeTrigger threshold={isMatch ? 0.7 : 1} key={para.id}>
                                 <motion.div className="bio-paragraph-wrapper" variants={profileVariants.profile.stagger}>
                                     <motion.h2 className="bio-paragraph-heading" variants={profileVariants.profile.autobiography}>{para.heading}</motion.h2>
                                     <motion.p className="bio-paragraph-content" variants={profileVariants.profile.autobiography}>
