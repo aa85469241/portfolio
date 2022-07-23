@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { media } from '../../styles/BreakPoint'
 
 export const Dot = styled.div`
     position: fixed;
@@ -11,6 +12,9 @@ export const Dot = styled.div`
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 999;
+    ${media.laptop} {
+        display: none;
+    }
     &.toggle_theme {
         width: 20px;
         height: 20px;
