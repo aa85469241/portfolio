@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 //framer-motion
 import { motion, useCycle } from 'framer-motion'
 // styles
-import { Container, Flex } from '../../styles/GlobalStyles'
+import { Bar, Container, Flex } from '../../styles/GlobalStyles'
 import { HeaderNav, Logo, Menu } from './header.style'
 // context
 import { useGlobalDispatchContext, useGlobalStateContext } from '../../context/GlobalContext'
@@ -86,17 +86,16 @@ export const Header = ({ delaySec }) => {
                                 <motion.span
                                     className='menu-text'
                                     variants={{
-                                        closed: { opacity: 1 },
-                                        open: { opacity: 0 }
+                                        closed: { opacity: 1, transition: { duration: .5, delay: .7 } },
+                                        open: { opacity: 0, transition: { duration: .5 } }
                                     }}
-                                    transition={{ duration: 0.5 }}
                                 >
                                     menu
                                 </motion.span>
                                 <motion.div className='menu-bar-wrapper'>
-                                    <motion.span className='menu-bar' custom={1} variants={variants.headerVariants.menuToggleCross} />
-                                    <motion.span className='menu-bar' variants={variants.headerVariants.menuToggleFadeAway} />
-                                    <motion.span className='menu-bar' custom={-1} variants={variants.headerVariants.menuToggleCross} />
+                                    <motion.span className='menu-bar' custom={1} variants={variants.headerVariants.menuBarBlock} />
+                                    <motion.span className='menu-bar' variants={variants.headerVariants.menuBarMiddle} />
+                                    <motion.span className='menu-bar' custom={-1} variants={variants.headerVariants.menuBarBlock} />
                                 </motion.div>
                             </Menu>
                         </Flex>

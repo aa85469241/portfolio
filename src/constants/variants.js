@@ -45,33 +45,68 @@ const loaderVariants = {
 }
 
 const headerVariants = {
-    menuToggleCross: {
+    menuBarBlock: {
         open: (custom) =>
             ({ y: [0, 5 * custom, 5 * custom], rotate: [0, 0, 45 * custom], transition: { duration: .8 } }),
         closed: { y: 0, rotate: 0, transition: { duration: 1 } }
     },
-    menuToggleFadeAway: {
+    menuBarMiddle: {
         open: { x: -30, opacity: 0, transition: { duration: .5 } },
         closed: { x: 0, opacity: 1, transition: { duration: .3, delay: .5 } }
     },
     overlay: {
-        open: { x: 0, transition: { duration: .35 } },
-        closed: { x: '100vw', transition: { delay: .75, duration: .3 } }
+        closed: { x: '100vw', transition: { duration: .3, when: 'afterChildren' } },
+        open: { x: 0, transition: { duration: .3, when: 'beforeChildren' } }
+    },
+    navWrapper: {
+        closed: {
+            clipPath: 'circle(0vh at 100% 0)',
+            transition: {
+                type: "spring",
+                stiffness: 400,
+                damping: 40,
+                when: 'afterChildren'
+            }
+        },
+        open: {
+            clipPath: 'circle(200vh at 100% 0)',
+            transition: {
+                type: "spring",
+                stiffness: 30,
+                restDelta: 2,
+            }
+        }
     },
     item: {
-        open: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 50, duration: .4 } },
-        closed: { x: 100, opacity: 0, transition: { type: 'spring' } }
+        open: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                y: { stiffness: 1000, velocity: -100 }
+            }
+        },
+        closed: {
+            y: 50,
+            opacity: 0,
+            transition: {
+                y: { stiffness: 1000 }
+            }
+        }
     },
     stagger: {
-        open: { transition: { staggerChildren: 0.3, staggerDirection: 1 } },
-        closed: { transition: { staggerChildren: 0.2, staggerDirection: -1 } },
+        open: {
+            transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+        },
+        closed: {
+            transition: { staggerChildren: 0.05, staggerDirection: -1 }
+        },
         active: { transition: { staggerChildren: 0.05 } },
     },
     fadeOut: {
         hidden: { y: 150 },
         visible: { y: 0, transition: { duration: 1 } }
     },
-    listItem: {
+    icon: {
         initial: { y: -50, opacity: 0 },
         active: { y: 0, opacity: 1 },
         exit: { y: -50, opacity: 0, transition: { y: { delay: 0.5 } } }

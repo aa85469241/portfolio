@@ -4,12 +4,12 @@ import { motion } from 'framer-motion'
 
 export const HeaderNav = styled.header`
     grid-area: header;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
-    height: fit-content;
-    padding: 2rem 1.5rem;
+    height: 100%;
+    padding: 1rem 1.5rem;
     z-index: 102;
     ${media.mobile} {
         padding: 1.5rem 0;
@@ -51,15 +51,7 @@ export const Menu = styled(motion.div)`
     width: 10rem;
     display: flex;
     align-items: center;
-    background-color: var(--clr-dark-red);
-    clip-path: inset(0.5rem 0 0.5rem 0 round 10rem);
     transition: 1s cubic-bezier(0.19, 0.38, 0.05, 1);
-    &.is-open {
-        clip-path: inset(0.25rem 1rem 0.25rem 5.5rem round 10rem);
-    }
-    &:hover {
-        background-color: var(--clr-red);
-    }
     .menu-bar-wrapper {
         position: absolute;
         left: 6rem;
@@ -70,7 +62,7 @@ export const Menu = styled(motion.div)`
         .menu-bar {
             width: 40px;
             height: 2.1px;
-            background-color: var(--clr-white);
+            background-color: ${props => props.theme.text};
             transform-origin: 45% 50%;
             &:nth-of-type(2) {
                 margin-left: 50%;
@@ -83,7 +75,7 @@ export const Menu = styled(motion.div)`
         font-size: 20px;
         font-family: var(--font-family-main);
         font-weight: 600;
-        color: var(--clr-white);
+        color: ${props => props.theme.text};
         text-transform: uppercase;
     }
 `

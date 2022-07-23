@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import styled, { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../../styles/GlobalStyles'
 // components
-import { Header, Cursor, Pagination } from '../../components'
+import { Header, Cursor, Pagination, Display } from '../../components'
 import { useGlobalStateContext } from '../../context/GlobalContext'
 import { images } from '../../constants'
 import { media } from '../../styles/BreakPoint'
@@ -14,7 +14,7 @@ import { media } from '../../styles/BreakPoint'
 const LayoutContainer = styled(motion.div)`
     display: grid;
     grid-template-columns: 20% 80%;
-    grid-template-rows: 10% auto;
+    grid-template-rows: 15% auto;
     grid-template-areas: 
         "header header"
         "pagination main";
@@ -33,7 +33,7 @@ const LayoutContainer = styled(motion.div)`
     }
     ${media.laptop} {
         grid-template-columns: auto;
-        grid-template-rows: 12% auto 10%;
+        grid-template-rows: 8% auto 10%;
         grid-template-areas: 
             "header"
             "main"
@@ -66,6 +66,8 @@ const Main = styled.main`
 export const Layout = ({
     pagination,
     setPagination,
+    onDisplay,
+    setOnDisplay,
     children,
 }) => {
 
@@ -96,6 +98,7 @@ export const Layout = ({
                 <Header />
                 <Pagination pagination={pagination} setPagination={setPagination} />
                 <Frame />
+                <Display onDisplay={onDisplay} setOnDisplay={setOnDisplay} />
                 <Cursor />
                 <Main>{children}</Main>
             </LayoutContainer>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaPlay } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 // framer motion
-import { AnimatePresence, AnimateSharedLayout, motion, useCycle } from 'framer-motion'
+import { AnimatePresence, motion, useCycle } from 'framer-motion'
 // components
 import { AnimeTrigger, Button } from '../../components'
 // constant
@@ -18,23 +18,19 @@ import {
     PhotoWrapper,
     Buttons,
     Resume,
-    Overlay,
 } from './profile.style'
 
 
 
-const Profile = () => {
+const Profile = ({ onDisplay, setOnDisplay }) => {
 
     const { setCursorType } = useCursor()
-
-    // resume toggle
     const [display, toggle] = useCycle(false, true)
-    const [index, setIndex] = useState(false)
-    const isMatch = useMediaQuery("(min-width: 480px)")
 
-    const handleResumeToggle = (page) => {
-        if (isMatch === true && index === false) setIndex(page);
-        else return;
+    // expand resume
+    const isMatch = useMediaQuery('(max-width: 992px)')
+    const handleOnDisplay = () => {
+        if (!isMatch && !onDisplay) setOnDisplay(true)
     }
     // slide
     const [current, setCurrent] = useState(0)
@@ -70,7 +66,7 @@ const Profile = () => {
                                 className='postscript'
                                 variants={variants.inViewVariants.zoomInFromX}
                                 transition={{ duration: .5 }}
-                            >*While resume has been toggled on, click right side is allowed.</motion.span>
+                            >*Click resume on right hand side could toggle it on.</motion.span>
                         </div>
                     </IntroSection>
                     <Buttons
@@ -102,68 +98,37 @@ const Profile = () => {
                             <Button btnType='__rectangle'>see more details</Button>
                         </Link>
                     </Buttons>
-                    <AnimateSharedLayout type='crossfade'>
-                        <PhotoWrapper className={`${display && 'resume-toggleOn'}`}>
-                            <motion.img
-                                src={images.selfie}
-                                alt='selfie'
-                                className="photo"
-                                style={{ opacity: `${display ? 0 : 1}` }}
-                                variants={variants.inViewVariants.photo}
-                                transition={{ duration: .7 }}
-                            />
-                            <AnimatePresence>
-                                {display === true &&
-                                    <Resume
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        transition={{ duration: 1 }}
-                                    >
-                                        <div className='carousel-track'>
-                                            {images.resume.map((page, index) =>
-                                                <motion.img
-                                                    key={'resume-page-' + index}
-                                                    src={page}
-                                                    alt={'resume-page-' + index}
-                                                    className={`resume ${current === index && 'active'}`}
-                                                    layoutId={'resume-' + index}
-                                                />
-                                            )}
-                                            {index === false &&
-                                                <motion.span
-                                                    className="magnify"
-                                                    whileHover={{ opacity: 1, transition: { duration: 0.3 } }}
-                                                    onClick={() => handleResumeToggle(current)}
-                                                />}
-                                        </div>
-                                    </Resume>}
-                            </AnimatePresence>
-                        </PhotoWrapper>
+                    <PhotoWrapper className={`${display && 'resume-toggleOn'}`}>
+                        <motion.img
+                            src={images.selfie}
+                            alt='selfie'
+                            className="photo"
+                            style={{ opacity: `${display ? 0 : 1}` }}
+                            variants={variants.inViewVariants.photo}
+                            transition={{ duration: .7 }}
+                        />
                         <AnimatePresence>
-                            {index !== false &&
-                                <Overlay
-                                    key='overlay'
+                            {display === true &&
+                                <Resume
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
-                                    transition={{ duration: .3 }}
-                                    onClick={() => setIndex(false)} />
-                            }
-                            {index === current &&
-                                <Resume className='stretched'>
-                                    <motion.img
-                                        key={'resume-stretched-' + index}
-                                        src={images.resume[index]}
-                                        alt={'resume-' + index}
-                                        className="resume-stretched"
-                                        layoutId={'resume-' + index}
-                                        onClick={() => setIndex(false)}
-                                    />
-                                </Resume>
-                            }
+                                    transition={{ duration: 1 }}
+                                    onClick={handleOnDisplay}
+                                >
+                                    <div className='carousel-track'>
+                                        {images.resume.map((page, index) =>
+                                            <motion.img
+                                                key={'resume-page-' + index}
+                                                src={page}
+                                                alt={'resume-page-' + index}
+                                                className={`resume ${current === index && 'active'}`}
+                                            />
+                                        )}
+                                    </div>
+                                </Resume>}
                         </AnimatePresence>
-                    </AnimateSharedLayout>
+                    </PhotoWrapper>
                 </div>
             </AnimeTrigger>
         </ProfileContainer>

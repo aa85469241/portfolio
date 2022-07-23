@@ -11,38 +11,36 @@ export const Overlay = styled(motion.div)`
     z-index: 100;
 `
 
-export const NavMenu = styled.nav`
+export const NavMenu = styled(motion.nav)`
     position: fixed;
     top: 0;
     right: 0;
-    width: 40%;
-    height: 100%;
-    background-color: #DCD9D4;
+    /* width: 30%; */
+    height: 100vh;
+    aspect-ratio: 7 / 10;
+    background-color: #DCD9D4; //#DCD9D4
     background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
     background-blend-mode: soft-light,screen;
     box-shadow: -5px 0 10px #d1cdc7;
-    ${media.laptop} {
-        width: 75%;
-    }
-    ${media.tablet} {
+    transform-origin: top right;
+    z-index: 100;
+    ${media.mobile} {
         width: 100%;
-        min-width: 100%;
         box-shadow: none;
+        aspect-ratio: none;
     }
     .nav-list {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 3rem;
         height: 100%;
-        padding: 1.5rem 1rem;
         li {
             position: relative;
-            display: inline-block;
-            margin: 2rem;
-            z-index: 1;
+            display: block;
             .navigate{
-                font-size: clamp(0.45rem, 0.45rem + 7.85vw, 4.48rem);
+                font-size: clamp(2.5rem, calc(1.18rem + 2.67vw), 3.75rem);
                 font-weight: 500;
                 font-family: var(--font-family-navigation);
                 color: var(--clr-black);
@@ -139,19 +137,21 @@ export const List = styled(motion.ul)`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 90% 10%;
+    grid-column-gap: 1rem;
     grid-template-areas: 
         "icon1 icon2"
         "copyText copyText";
     white-space: nowrap;
     margin-top: 1rem;
     .icon-wrapper {
-        width: 7rem;
-        height: 7rem;
+        --icon-size: clamp(5.00rem, calc(4.26rem + 2.85vw), 7.00rem);
+        width: var(--icon-size);
+        height: var(--icon-size);
         padding: 1rem;
         border: 2px solid black;
         border-radius: 20px;
         position: relative;
-        justify-self: center;
+        justify-self: center;   
         overflow: hidden;
         &.phone {grid-area: icon1;}
         &.mail {grid-area: icon2;}

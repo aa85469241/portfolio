@@ -144,46 +144,5 @@ export const Resume = styled(motion.div)`
                 transition: opacity .7s ease-in-out;
             }
         }
-        .magnify {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.1);
-            background-image: url(${images.magnify});
-            background-size: 80px 80px;
-            background-position: center center;
-            background-repeat: no-repeat;
-            opacity: 0;
-            z-index: 2;
-        }
-    }
-    &.stretched {
-        top: -10%;
-        height: 110%;
-        display: flex;
-        justify-content: center;
-        z-index: 5;
-        .resume-stretched {
-            max-width: 100%;
-            object-fit: cover;
-        }
-        ${media.laptop} {
-            padding: 5rem 2rem;
-        }
-    }
-`
-
-export const Overlay = styled(motion.div)`
-    position: absolute;
-    top: -10%;
-    left: 0;
-    width: 100%;
-    height: 110%;
-    background-color: rgba(255, 255, 255, 0.6);
-    z-index: 4;
-    ${media.mobile} {
-        display: none;
     }
 `

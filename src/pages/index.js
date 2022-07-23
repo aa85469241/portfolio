@@ -11,14 +11,22 @@ const Home = () => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [pagination, setPagination] = useState(0)
+    // in experience page
     const [onDrag, setOnDrag] = useState(false)
+    // toggle resume in profile page
+    const [onDisplay, setOnDisplay] = useState(false)
 
     const handlePageChange = number => {
         setPagination(number)
     }
-    
+
     return (
-        <Layout pagination={pagination} setPagination={setPagination}>
+        <Layout
+            pagination={pagination}
+            setPagination={setPagination}
+            onDisplay={onDisplay}
+            setOnDisplay={setOnDisplay}
+        >
             <AnimatePresence>
                 {isLoading
                     ? <motion.div key='loader'>
@@ -35,7 +43,7 @@ const Home = () => {
                         blockScrollDown={onDrag ? true : false}
                     >
                         <Hero setPagination={setPagination} isLoading={isLoading} />
-                        <Profile />
+                        <Profile onDisplay={onDisplay} setOnDisplay={setOnDisplay}/>
                         <Experience setOnDrag={setOnDrag} />
                         <Contact setPagination={setPagination} />
                     </ReactPageScroller>}

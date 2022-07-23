@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 // components
-import { AnimeTrigger } from '../../components'
+import { AnimeTrigger } from '..'
 // constants
 import { variants } from '../../constants'
 // context
