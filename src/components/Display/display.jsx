@@ -40,12 +40,17 @@ const variants = {
     container: {
         show: { x: 0, transition: { duration: .5, when: 'beforeChildren' } },
         hidden: {
-            x: '-100vw', transition: { duration: .5 }
+            x: '-100vw',
+            display: 'none',
+            transition: {
+                x: { duration: 0.5 },
+                display: { delay: 0.6 }
+            }
         }
     },
     paper: {
-        show: { x: [100, 0], y: [100, 0], opacity: 1, scale: [1.5, 1], rotate: [15, 0]},
-        hidden: { opacity: 0}
+        show: { x: [100, 0], y: [100, 0], opacity: 1, scale: [1.5, 1], rotate: [15, 0] },
+        hidden: { opacity: 0 }
     }
 }
 

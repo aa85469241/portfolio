@@ -34,7 +34,7 @@ const Home = () => {
                     </motion.div>
                     : <ReactPageScroller
                         containerWidth={'100%'}
-                        containerHeight={'80vh'}
+                        containerHeight={'100%'}
                         renderAllPagesOnFirstRender={true}
                         customPageNumber={pagination}
                         onBeforePageScroll={handlePageChange}

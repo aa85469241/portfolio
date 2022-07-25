@@ -31,7 +31,7 @@ export const ProfileContainer = styled.div`
         }
         ${media.tablet} {
             grid-template-rows: 50% 40% auto;
-            padding: 0;
+            padding: 1rem 0;
         }
     }
 

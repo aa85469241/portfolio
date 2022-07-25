@@ -4,15 +4,14 @@ import { motion } from 'framer-motion'
 
 export const HeaderNav = styled.header`
     grid-area: header;
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    padding: 1rem 1.5rem;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: 80px;
     z-index: 102;
-    ${media.mobile} {
-        padding: 1.5rem 0;
+    ${media.laptop} {
+        height: 60px;
     }
 `
 

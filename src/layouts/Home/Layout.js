@@ -14,10 +14,11 @@ import { media } from '../../styles/BreakPoint'
 const LayoutContainer = styled(motion.div)`
     display: grid;
     grid-template-columns: 20% 80%;
-    grid-template-rows: 15% auto;
+    grid-template-rows: 80px auto;
     grid-template-areas: 
         "header header"
         "pagination main";
+    align-items: end;
     width: 100vw;
     height: 100vh;
     padding: 20px;
@@ -33,7 +34,7 @@ const LayoutContainer = styled(motion.div)`
     }
     ${media.laptop} {
         grid-template-columns: auto;
-        grid-template-rows: 8% auto 10%;
+        grid-template-rows: 60px auto 8%;
         grid-template-areas: 
             "header"
             "main"
@@ -59,6 +60,7 @@ const Main = styled.main`
     grid-area: main;
     display: block;
     width: 100%;
+    height: 100%;
     margin: auto;
     overflow: hidden;
 `
