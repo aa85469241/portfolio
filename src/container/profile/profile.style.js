@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { media } from '../../styles/BreakPoint'
 import { motion } from 'framer-motion'
-import { images } from '../../constants'
 
 export const ProfileContainer = styled.div`
     position: relative;
@@ -20,7 +19,6 @@ export const ProfileContainer = styled.div`
             "button selfie"; */
         ${media.laptop} {
             width: 100%;
-            height: calc(100% - 4rem);
             grid-template-columns: 1fr;
             grid-template-rows: 40% 50% 10%;
             &.resume-toggleOn {
@@ -33,10 +31,8 @@ export const ProfileContainer = styled.div`
         }
         ${media.tablet} {
             grid-template-rows: 50% 40% auto;
+            padding: 0;
         }
-    }
-    ${media.tablet} {
-        padding: 1rem 0;
     }
 
 `
