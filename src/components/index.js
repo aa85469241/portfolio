@@ -1,5 +1,5 @@
 // home page
-export * from './customCursor/cursor'
+export * from './CustomCursor/cursor'
 export * from './Header/header'
 export * from './Pagination/pagination'
 export * from './AnimeTrigger/animeTrigger'
