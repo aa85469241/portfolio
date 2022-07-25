@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 //framer-motion
 import { motion, useCycle } from 'framer-motion'
 // styles
-import { Bar, Container, Flex } from '../../styles/GlobalStyles'
+import { Container, Flex } from '../../styles/GlobalStyles'
 import { HeaderNav, Logo, Menu } from './header.style'
 // context
 import { useGlobalDispatchContext, useGlobalStateContext } from '../../context/GlobalContext'
