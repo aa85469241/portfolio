@@ -3,7 +3,6 @@ import { media } from '../../styles/BreakPoint'
 import { motion } from 'framer-motion'
 
 export const HeaderNav = styled.header`
-    grid-area: header;
     position: fixed;
     top: 20px;
     left: 20px;

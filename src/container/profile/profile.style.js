@@ -5,8 +5,9 @@ import { motion } from 'framer-motion'
 export const ProfileContainer = styled.div`
     position: relative;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    overflow: hidden;
     .profile_wrapper {
         width: 100%;
         height: 100%;

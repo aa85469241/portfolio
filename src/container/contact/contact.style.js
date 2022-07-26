@@ -5,9 +5,8 @@ import { media } from '../../styles/BreakPoint'
 export const ContactContainer = styled.div`
     position: relative;
     inset: 0;
-    width: 100%;    
-    height: 100%;
-    padding-block: 1rem;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
     overflow: hidden;
 `
 

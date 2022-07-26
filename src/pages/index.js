@@ -33,8 +33,6 @@ const Home = () => {
                         <Loader isLoading={isLoading} setIsLoading={setIsLoading} />
                     </motion.div>
                     : <ReactPageScroller
-                        containerWidth={'100%'}
-                        containerHeight={'100%'}
                         renderAllPagesOnFirstRender={true}
                         customPageNumber={pagination}
                         onBeforePageScroll={handlePageChange}
@@ -43,7 +41,7 @@ const Home = () => {
                         blockScrollDown={onDrag ? true : false}
                     >
                         <Hero setPagination={setPagination} isLoading={isLoading} />
-                        <Profile onDisplay={onDisplay} setOnDisplay={setOnDisplay}/>
+                        <Profile onDisplay={onDisplay} setOnDisplay={setOnDisplay} />
                         <Experience setOnDrag={setOnDrag} />
                         <Contact setPagination={setPagination} />
                     </ReactPageScroller>}

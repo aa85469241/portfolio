@@ -12,13 +12,6 @@ import { media } from '../../styles/BreakPoint'
 
 
 const LayoutContainer = styled(motion.div)`
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 80px auto;
-    grid-template-areas: 
-        "header header"
-        "pagination main";
-    align-items: end;
     width: 100vw;
     height: 100vh;
     padding: 20px;
@@ -57,11 +50,8 @@ const Frame = styled.div`
 `
 
 const Main = styled.main`
-    grid-area: main;
-    display: block;
     width: 100%;
     height: 100%;
-    margin: auto;
     overflow: hidden;
 `
 

@@ -5,9 +5,9 @@ import { media } from '../../styles/BreakPoint'
 
 export const Banner = styled.div`
     position: relative;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    left: 0;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
     padding: 1rem;
 `
 

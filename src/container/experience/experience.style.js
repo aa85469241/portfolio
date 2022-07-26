@@ -7,9 +7,9 @@ import { images } from '../../constants'
 export const ExpContainer = styled.div`
     position: relative;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    padding-block: 1rem;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    overflow: hidden;
     .title-wrapper {
         grid-row-end: 2;
         grid-column-start: 2;
