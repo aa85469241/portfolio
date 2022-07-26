@@ -63,7 +63,7 @@ export const IntroSection = styled(motion.section)`
             border-bottom: 2px solid ${props => props.theme.border};
         }
         .intro_content {
-            font-size: var(--step-profile-content);
+            font-size: 1.2rem;
             line-height: 2;
         }
         .postscript {

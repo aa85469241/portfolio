@@ -41,7 +41,7 @@ export const GlobalStyles = createGlobalStyle`
         --step-header-logo: clamp(0.94rem, calc(0.58rem + 1.38vw), 1.88rem);
         --step-header-switch: clamp(0.75rem, calc(0.44rem + 1.20vw), 1.56rem);
         
-        --step-profile-content: clamp(1.56rem, calc(1.32rem + 0.92vw), 2.19rem);
+        --step-profile-content: clamp(1.20rem, calc(0.83rem + 1.43vw), 2.20rem);
         
         --step-exp-carousel: clamp(26.25rem, calc(23.87rem + 9.21vw), 32.50rem);
         --step-exp-card: clamp(12.50rem, calc(11.31rem + 4.60vw), 15.63rem);

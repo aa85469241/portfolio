@@ -30,7 +30,8 @@ export const ContactSection = styled(motion.section)`
             word-wrap: break-word;
         }
     }
-    ${media.laptop} {   
+    ${media.laptop} {
+        grid-template-rows: 30% auto;
         .leading-text-wrapper {
             max-width: 75%;
         }
