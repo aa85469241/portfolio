@@ -7,6 +7,7 @@ import { Hero, Profile, Experience, Contact } from '../container'
 import { Loader } from '../components'
 
 
+
 const Home = () => {
 
     const [isLoading, setIsLoading] = useState(true)
