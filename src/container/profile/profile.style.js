@@ -8,6 +8,7 @@ export const ProfileContainer = styled.div`
     width: calc(100% - 40px);
     height: calc(100% - 40px);
     padding: 80px 0 20px 20%;
+    border: 5px solid orange;
     overflow: hidden;
     .profile_wrapper {
         width: 100%;

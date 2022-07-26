@@ -79,7 +79,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         background-color: ${props => props.theme.background};
         line-hight: 1.5;
-        overflow-x: hidden;
+        overflow: hidden;
         user-select: none;
         &::-webkit-scrollbar {
             width: 10px;

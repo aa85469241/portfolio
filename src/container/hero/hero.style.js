@@ -9,6 +9,7 @@ export const Banner = styled.div`
     width: calc(100% - 40px);
     height: calc(100% - 40px);
     padding: 80px 0 20px 20%;
+    border: 5px solid red;
 `
 
 export const Section = styled(motion.section)`
