@@ -52,7 +52,7 @@ export const Layout = ({ children }) => {
                 variants={variants.pageTransform}
             >
                 <GlobalStyles />
-                <Header delaySec={0.1} />
+                <Header />
                 <Cursor dotColor='grey' outlineColor='grey' />
                 <main>
                     {children}

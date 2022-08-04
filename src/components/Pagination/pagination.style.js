@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {media} from '../../styles/BreakPoint'
+import { media } from '../../styles/BreakPoint'
 import { motion } from 'framer-motion'
 
 export const PaginationContainer = styled.div`
@@ -7,12 +7,16 @@ export const PaginationContainer = styled.div`
     position: fixed;
     left: 0;
     bottom: 0;
-    margin: 3% 3%;
+    margin: 2rem 3rem;
+    padding-block: 1rem;
     z-index: 20;
     ${media.laptop} {
         left: 0;
         right: 0;
-        padding: 1rem;
+        margin: 1rem 0;
+    }
+    ${media.mobile} {
+        margin: 1rem 1.5rem;
     }
 `
 
@@ -45,7 +49,7 @@ export const Pages = styled(motion.div)`
         .page-checkbox {
             position: relative;
             width: 2rem;
-            aspect-ratio: 1 / 1;
+            height: 2rem;
             border: 3px solid ${props => props.theme.border};
             .selected {
                 position: absolute;

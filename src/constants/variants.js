@@ -19,6 +19,12 @@ const loaderVariants = {
             transition: { duration: 1 }
         })
     },
+    wrapOutHorizontal: {
+        exit: (custom) => ({
+            x: 1000 * custom,
+            transition: { duration: 1 }
+        })
+    },
     loadingText: {
         initial: { scale: 0 },
         animate: { scale: 1, transition: { type: 'spring', stiffness: 100, when: 'beforeChildren' } },
@@ -61,15 +67,20 @@ const headerVariants = {
     navWrapper: {
         closed: {
             clipPath: 'circle(0vh at 100% 0)',
+            display: 'none',
             transition: {
                 type: "spring",
                 stiffness: 400,
                 damping: 40,
-                when: 'afterChildren'
+                when: 'afterChildren',
+                display: {
+                    delay: .5
+                }
             }
         },
         open: {
             clipPath: 'circle(200vh at 100% 0)',
+            display: 'block',
             transition: {
                 type: "spring",
                 stiffness: 30,
@@ -82,14 +93,14 @@ const headerVariants = {
             y: 0,
             opacity: 1,
             transition: {
-                y: { stiffness: 1000, velocity: -100 }
+                y: { stiffness: 1000, velocity: -100 },
             }
         },
         closed: {
             y: 50,
             opacity: 0,
             transition: {
-                y: { stiffness: 1000 }
+                y: { stiffness: 1000 },
             }
         }
     },
@@ -163,10 +174,6 @@ const inViewVariants = {
         hidden: { y: 150, opacity: 0, x: '9%' },
         visible: { y: 0, opacity: 1, transition: { duration: .5 } }
     },
-    prefixesFalling: {
-        hidden: { y: -100, opacity: 0, rotate: -20 },
-        visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100 } }
-    },
     progressBar: {
         visible: { width: 'calc(100% - 40px)', transition: { duration: 1 } },
         hidden: { width: 0 }
@@ -189,7 +196,7 @@ const inViewVariants = {
 
 const contactVariants = {
     textFall: {
-        hideInfo: { y: -500, opacity: 0, transition: { duration: .5 } },
+        hideInfo: { y: -550, opacity: 0, transition: { duration: .5 } },
         showInfo: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 150, damping: 17, duration: .5, delay: .5 } }
     },
     crack: {
@@ -213,8 +220,8 @@ const contactVariants = {
         hideInfo: { opacity: 1, transition: { duration: 0.5 } }
     },
     svgPath: {
-        hideInfo: { pathLength: 0, transition: { duration: 1 } },
-        showInfo: { pathLength: 1, transition: { duration: 1, delay: 1 } }
+        hideInfo: { pathLength: 0, opacity: 0, transition: { duration: 1 } },
+        showInfo: { pathLength: 1, opacity: 1, transition: { duration: 1, delay: 1, } }
     },
     zIndex: {
         showInfo: { zIndex: 10 },

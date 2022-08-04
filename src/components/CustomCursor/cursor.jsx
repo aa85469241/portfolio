@@ -9,7 +9,7 @@ import { useCursor } from '../../context/cursorContext'
 
 export const Cursor = ({ dotColor, outlineColor }) => {
 
-    const { x, y } = useMousePosition()
+    const { mouseX, mouseY } = useMousePosition()
     // context
     const { cursorType } = useCursor()
 
@@ -17,11 +17,11 @@ export const Cursor = ({ dotColor, outlineColor }) => {
         <>
             <Dot
                 dotColor={dotColor}
-                style={{ top: `${y}px`, left: `${x}px` }}
+                style={{ top: `${mouseY}px`, left: `${mouseX}px` }}
                 className={`${!!cursorType ? cursorType : ''}`} />
             <Outline
                 outlineColor={outlineColor}
-                style={{ top: `${y}px`, left: `${x}px` }}
+                style={{ top: `${mouseY}px`, left: `${mouseX}px` }}
                 className={`${!!cursorType ? cursorType : ''}`}
             />
         </>

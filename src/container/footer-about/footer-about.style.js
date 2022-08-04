@@ -92,7 +92,7 @@ export const ContactInfo = styled(motion.div)`
         display: inline-block;
         font-size: 4.5rem;
         font-weight: 400;
-        font-family: var(--font-family-hero);
+        font-family: var(--font-family-navigation);
         text-transform: uppercase;
         margin-left: 40%;
         &:nth-of-type(2) {

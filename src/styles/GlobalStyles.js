@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-red: #EF4A4A;
         --clr-dark-red: #b30000;
         --clr-brown: #EFD0A2;
+        --clr-gray: #A9A9A9;
         --clr-wood: #DEB887;
         --clr-wood-strong: #a06e2c;
         --clr-cursor: ${props => props.theme.text};
@@ -21,22 +22,18 @@ export const GlobalStyles = createGlobalStyle`
         --clr-backdrop-light: hsla(0, 0%, 100%, 0.5);
         --clr-backdrop-dark: hsla(0, 0%, 0%, 0.5);
 
-        --font-family-body: 'Fira Sans', sans-serif;
-        --font-family-hero: 'Righteous', cursive;
         --font-family-navigation: 'Russo One', sans-serif;
+        --font-family-hero: 'Rubik Glitch', cursive;
         --font-family-main: 'Changa', sans-serif;
-        --font-family-subtext: 'Akaya Telivigala', cursive;
-        --font-family-contact: 'Abel', sans-serif;
         --font-family-chinese: arial,"Microsoft JhengHei","微軟正黑體",sans-serif;
 
         // font size
         --step--1: clamp(0.42rem, 0.15rem + 1.50vw, 1.50rem);
         --step-0: clamp(0.50rem, 0.16rem + 1.90vw, 1.88rem);
         --step-1: clamp(0.60rem, 0.17rem + 2.42vw, 2.34rem);
-        --step-title: clamp(3.13rem, calc(2.65rem + 1.84vw), 4.38rem);
+        --step-title: clamp(2.81rem, calc(2.24rem + 2.21vw), 4.38rem);
         
-        --step-hero-main: clamp(3.13rem, calc(1.95rem + 4.53vw), 6.20rem);
-        --step-hero-subtext: clamp(1.38rem, calc(1.01rem + 1.42vw), 2.34rem);
+        --step-hero: clamp(3.00rem, calc(1.18rem + 7.04vw), 6.00rem);
         
         --step-header-logo: clamp(0.94rem, calc(0.58rem + 1.38vw), 1.88rem);
         --step-header-switch: clamp(0.75rem, calc(0.44rem + 1.20vw), 1.56rem);
@@ -72,14 +69,14 @@ export const GlobalStyles = createGlobalStyle`
 
     html {
         font-size: 16px;
-        font-family: var(--font-family-body);
+        font-family: var(--font-family-main);
         -webkit-font-smoothing: antialiased;
     }
 
     body {
         background-color: ${props => props.theme.background};
         line-hight: 1.5;
-        overflow: hidden;
+        overflow-x: hidden;
         user-select: none;
         &::-webkit-scrollbar {
             width: 10px;
@@ -119,32 +116,37 @@ export const Bar = styled(motion.span)`
     position: absolute;
     display: block;
     background-color: ${props => props.theme.border};
-    opacity: 0.3;
-    transform: scale(0.95);
-    z-index: 10;
+    opacity: 1;
+    z-index: 99;
+    ${props => props.lower__layer && css`
+        z-index: 1;
+    `}
+    ${props => props.lighten && css`
+        opacity: 0.3;
+    `}
     ${props => props.right && css`
         top: 0;
         right: 0;
-        width: 3px;
+        width: 2px;
         height: 100%;
     `}
     ${props => props.left && css`
         top: 0;
         left: 0;
-        width: 3px;
+        width: 2px;
         height: 100%;
     `}
     ${props => props.top && css`
         top: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: 2px;
     `}
     ${props => props.bottom && css`
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: 2px;
     `}
     ${props => props.none && css`
         display: none;

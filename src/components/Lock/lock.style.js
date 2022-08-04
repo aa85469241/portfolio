@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { media } from '../../styles/BreakPoint'
 
 export const GroupSelector = styled(motion.span)`
     --border-dash: 3px dashed ${props => props.theme.border};
     --border-solid: 3px solid ${props => props.theme.border};
     position: absolute;
-    top: 0; left: 0;
+    top: 0; 
+    left: 0;
     height: 100%;
     background: ${props => props.theme.background};
     box-shadow: var(--shadow-1);
-    z-index: 10;
+    z-index: 1;
 `
 
 export const LockBody = styled(motion.div)`
@@ -66,14 +66,5 @@ export const LockBody = styled(motion.div)`
         .lock-body-wrapper {
             background-color: var(--clr-wood);
         }
-    }
-    ${media.laptop} {
-        left: 20%;
-    }
-    ${media.tablet} {
-        left: 18%;
-    }
-    ${media.mobile} {
-        left: 10%;
     }
 `

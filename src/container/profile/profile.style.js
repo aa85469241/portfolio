@@ -4,12 +4,19 @@ import { motion } from 'framer-motion'
 
 export const ProfileContainer = styled.div`
     position: relative;
-    inset: 0;
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
-    padding: 80px 0 20px 20%;
-    border: 5px solid orange;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 40px);
+    padding: 1rem;
+    padding-top: 80px;
     overflow: hidden;
+    ${media.laptop} {
+        padding-block: 60px 80px;
+    }
+    ${media.mobile} {
+        padding-block: 40px 80px;
+    }
     .profile_wrapper {
         width: 100%;
         height: 100%;
@@ -17,11 +24,9 @@ export const ProfileContainer = styled.div`
         grid-template-columns: 55% 45%;
         grid-template-rows: 80% 20%;
         padding: 1rem;
-        /* grid-template-areas: 
-            "section selfie"
-            "button selfie"; */
         ${media.laptop} {
             width: 100%;
+            height: 95%;
             grid-template-columns: 1fr;
             grid-template-rows: 40% 50% 10%;
             &.resume-toggleOn {
@@ -34,7 +39,10 @@ export const ProfileContainer = styled.div`
         }
         ${media.tablet} {
             grid-template-rows: 50% 40% auto;
-            padding: 1rem 0;
+            padding: 0;
+        }
+        ${media.mobile} {
+            height: 90%;
         }
     }
 
@@ -47,7 +55,8 @@ export const IntroSection = styled(motion.section)`
     width: 100%;
     height: 100%;
     padding: 2rem 3rem;
-    border: 2px solid ${props => props.theme.border};
+    border: 3px solid ${props => props.theme.border};
+    border-radius: 20px 0 0 0; 
     overflow: hidden;
     .intro_wrapper {
         height: 100%;
@@ -75,6 +84,7 @@ export const IntroSection = styled(motion.section)`
     }
     ${media.laptop} {
         padding: 1rem 2rem;
+        border-radius: 20px 20px 0 0; 
         transform: translateX(0);
         &.resume-toggleOn {
             display: none;
@@ -95,9 +105,11 @@ export const Buttons = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border: 2px solid ${props => props.theme.border};
+    border: 3px solid ${props => props.theme.border};
+    border-radius: 0 0 0 20px;
     ${media.laptop} {
         grid-row: auto;
+        border-radius: 0 0 20px 20px;
     }
 `
 
@@ -107,7 +119,8 @@ export const PhotoWrapper = styled(motion.div)`
     position: relative;
     height: 100%;
     width: 100%;
-    border: 2px solid ${props => props.theme.border}; 
+    border: 3px solid ${props => props.theme.border}; 
+    border-radius: 0 20px 20px 0;
     overflow: hidden;   
     .photo {
         height: 100%;
@@ -116,6 +129,7 @@ export const PhotoWrapper = styled(motion.div)`
     }
     ${media.laptop} {
         grid-row: 2 / 3;
+        border-radius: 0 0 0 0;
         &.resume-toggleOn {
             grid-row: 1 / 2;
         }

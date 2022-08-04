@@ -30,10 +30,31 @@ export const ScrollSign = styled(motion.div)`
     width: fit-content;
     display: grid;
     .scroller {
-        width: 2px;
+        position: relative;
+        width: 3px;
         height: 80px;
         background-color: ${props => props.theme.border};
+        border-radius: 20px;
         justify-self: center;
+        overflow: hidden;
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--clr-wood);
+            border-radius: 20px;
+            animation: auto-slip 2s ease-in-out infinite forwards; 
+        }
+        @keyframes auto-slip {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
     }
     .scroller-text {
         color: ${props => props.theme.text};

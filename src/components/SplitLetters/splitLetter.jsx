@@ -1,16 +1,23 @@
 import { motion } from 'framer-motion'
 
 
-export const SplitLetters = ({ text, ...props }) => {
+export const SplitLetters = ({ text, textClass, textStyle, ...props }) => {
     return (
         <>
             {
                 [...text].map((letter, index) => (
-                    <span key={'letter' + index} style={{ overflow: 'hidden', display: 'inline-block' }}>
+                    <motion.span
+                        key={'letter' + index}
+                        style={{ display: 'inline-block' }}
+                        {...props}
+                    >
                         <motion.span
-                            style={{ display: 'inline-block' }}
-                            {...props}>{letter}</motion.span>
-                    </span>
+                            className={textClass}
+                            style={{ display: 'inline-block', ...textStyle }}
+                        >
+                            {letter}
+                        </motion.span>
+                    </motion.span>
                 ))
             }
         </ >

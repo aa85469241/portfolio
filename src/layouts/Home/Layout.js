@@ -2,63 +2,71 @@ import React from 'react'
 // framer motion
 import { motion } from 'framer-motion'
 // styles
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { css, ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../../styles/GlobalStyles'
+import { media } from '../../styles/BreakPoint'
 // components
-import { Header, Cursor, Pagination, Display } from '../../components'
+import { Header, Cursor, Pagination, Display, Frame } from '../../components'
 import { useGlobalStateContext } from '../../context/GlobalContext'
 import { images } from '../../constants'
-import { media } from '../../styles/BreakPoint'
 
 
 const LayoutContainer = styled(motion.div)`
     width: 100vw;
-    height: 100vh;
     padding: 20px;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-rows: auto;
+    grid-template-areas: "pagination main";
     &::before {
         content: '';
         position: fixed;
         top: -50%; left: -50%;
         width: 200%;
         height: 200%;
-        background: url(${images.noise});
+        background-image: url(${images.noise});
         opacity: 0.05;
     }
     ${media.laptop} {
         grid-template-columns: auto;
-        grid-template-rows: 60px auto 8%;
-        grid-template-areas: 
-            "header"
-            "main"
-            "pagination";
+        grid-template-rows: auto;
+        grid-template-areas: "main";
     }
 `
 
-const Frame = styled.div`
+const HideBar = styled.div`
     position: fixed;
-    inset: 0;
-    padding: 20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: ${props => props.theme.background};
+    z-index: 5;
     &::before {
         content: '';
-        position: relative;
+        position: fixed;
+        left: 0;
         width: 100%;
-        height: 100%;
-        display: block;
-        border: 2px solid ${props => props.theme.border};
+        height: 20px;
+        background-image: url(${images.noise});
+        opacity: 0.05;
     }
+    ${props => props.top && css`
+        top: 0;
+    `}
+    ${props => props.bottom && css`
+        bottom: 0;
+    `}
 `
 
 const Main = styled.main`
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+    grid-area: main;
+    display: block;
+    width: 100%;
     overflow: hidden;
 `
 
 export const Layout = ({
-    pagination,
-    setPagination,
     onDisplay,
     setOnDisplay,
     children,
@@ -87,13 +95,15 @@ export const Layout = ({
     return (
         <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
             <LayoutContainer exit={{ opacity: 0, transition: { duration: 1 } }}>
+                <HideBar top />
                 <GlobalStyles />
                 <Header />
-                <Pagination pagination={pagination} setPagination={setPagination} />
+                <Pagination />
                 <Frame />
                 <Display onDisplay={onDisplay} setOnDisplay={setOnDisplay} />
                 <Cursor />
                 <Main>{children}</Main>
+                <HideBar bottom />
             </LayoutContainer>
         </ThemeProvider>
     )

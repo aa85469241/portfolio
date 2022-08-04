@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { media } from '../../styles/BreakPoint'
 
 export const Dot = styled.div`
     position: fixed;
@@ -11,6 +12,9 @@ export const Dot = styled.div`
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 999;
+    ${media.landscape} {
+        display: none;
+    }
     &.toggle_theme {
         width: 20px;
         height: 20px;
@@ -63,9 +67,12 @@ export const Outline = styled.div`
     border-radius: 100%;
     border: 2px solid ${({ outlineColor }) => (outlineColor ? outlineColor : 'var(--clr-cursor)')};
     transform: translate(-50%, -50%);
-    transition: .1s;
+    transition: 0.1s;
     pointer-events: none;
     z-index: 999;
+    ${media.landscape} {
+        display: none;
+    }
     &.toggle_theme {
         background-color: var(--clr-red);
         border: none;

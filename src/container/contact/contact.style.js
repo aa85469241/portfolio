@@ -4,22 +4,29 @@ import { media } from '../../styles/BreakPoint'
 
 export const ContactContainer = styled.div`
     position: relative;
-    inset: 0;
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
-    padding: 80px 0 20px 20%;
-    border:5px solid green;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 40px);
+    padding: 1rem;
+    padding-top: 80px;
     overflow: hidden;
+    ${media.laptop} {
+        padding-block: 60px 80px;
+    }
+    ${media.mobile} {
+        padding-top: 40px;
+    }
 `
 
 export const ContactSection = styled(motion.section)`
     position: relative;
     width: 100%;
-    height: 95%;
+    height: 100%;
     display: grid;
-    grid-template-rows: 20% auto;
+    grid-template-rows: 25% auto;
     .leading-text-wrapper {
-        max-width: 70%;
+        max-width: 80%;
         line-height: 2;
         margin-inline: auto;
         .contact-leading-text {
@@ -33,17 +40,9 @@ export const ContactSection = styled(motion.section)`
     }
     ${media.laptop} {
         grid-template-rows: 30% auto;
-        .leading-text-wrapper {
-            max-width: 75%;
-        }
-    }
-    ${media.tablet} {
-        .leading-text-wrapper {
-            max-width: 80%;
-        }
     }
     ${media.mobile} {
-        padding: 2rem 1rem;
+        padding: 1rem;
         letter-spacing: 2px;
         .leading-text-wrapper {
             max-width: 100%;
@@ -134,7 +133,7 @@ export const BackToTop = styled(motion.div)`
     right: 3%;
     width: fit-content;
     height: auto;
-    font-family: var(--font-family-contact);
+    font-family: var(--font-family-main);
     white-space: nowrap;
     display: flex;
     margin-left: auto;
@@ -149,9 +148,12 @@ export const BackToTop = styled(motion.div)`
     ${media.laptop} {
         flex-direction: column;
         width: 100%;
+        bottom: 8%;
         right: 0;
     }
     ${media.tablet} {
-        .or {font-size: 25px;}
+        .or {
+            font-size: 20px;
+        }
     }
 `

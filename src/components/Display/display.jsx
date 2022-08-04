@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 // constant
 import { images } from '../../constants'
+import { useWindowSize } from '../../hooks/useWindowSize'
 
 const DisplayContainer = styled(motion.div)`
     position: fixed;
@@ -15,7 +16,7 @@ const DisplayContainer = styled(motion.div)`
         justify-content: space-evenly;
         height: 100%;
         .resume-expanded {
-            object-fit: cover;
+            height: 100%;
             box-shadow: 5px 5px 2px var(--clr-black);
         }
     }
@@ -38,7 +39,7 @@ const variants = {
         show: { transition: { staggerChildren: .2 } }
     },
     container: {
-        show: { x: 0, transition: { duration: .5, when: 'beforeChildren' } },
+        show: { x: 0, display: 'block', transition: { duration: .5, when: 'beforeChildren' } },
         hidden: {
             x: '-100vw',
             display: 'none',
@@ -56,6 +57,11 @@ const variants = {
 
 export const Display = ({ onDisplay, setOnDisplay }) => {
 
+    const [width] = useWindowSize()
+
+    useEffect(() => {
+        if (width < 992) setOnDisplay(false)
+    })
 
     return (
         <DisplayContainer

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { media } from '../../styles/BreakPoint'
 
 export const LoaderOverlay = styled(motion.div)`
     position: fixed;
@@ -15,6 +16,22 @@ export const LoaderOverlay = styled(motion.div)`
         &:nth-child(2) {left: 25%;}
         &:nth-child(3) {left: 50%;}
         &:nth-child(4) {left: 75%;}
+        ${media.mobile} {
+            width: 100%;
+            height: 25%;
+            &:nth-child(2) {
+                left: 0; 
+                top: 25%;
+            }
+            &:nth-child(3) {
+                left: 0; 
+                top: 50%;
+            }
+            &:nth-child(4) {
+                left: 0; 
+                top: 75%;
+            }
+        }
     }
 `
 
@@ -48,7 +65,7 @@ export const LettersContainer = styled(motion.div)`
         justify-content: center;
         z-index: 1;
         .loader-text {
-            font-size: var(--step-hero-main);
+            font-size: var(--step-hero);
             font-family: var(--font-family-navigation);
             text-transform: uppercase;
             color: var(--clr-white);
@@ -61,8 +78,8 @@ export const Loading = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     .loading-text {
-        font-size: var(--step-hero-main);
-        font-family: var(--font-family-hero);
+        font-size: var(--step-hero);
+        font-family: var(--font-family-navigation);
         color: var(--clr-white);
     }
     .loading-bar-track {

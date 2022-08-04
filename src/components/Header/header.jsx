@@ -29,7 +29,7 @@ export const Header = ({ delaySec }) => {
     const location = useLocation()
     const refreshPage = () => {
         if (location.pathname === '/') {
-            window.location.reload()
+            window.location.assign(window.location.href)
         }
         else {
             navigate('/')
@@ -53,7 +53,7 @@ export const Header = ({ delaySec }) => {
         <>
             <HeaderNav>
                 <Container>
-                    <AnimeTrigger threshold='0.5' delay={delaySec ? delaySec : 4}>
+                    <AnimeTrigger threshold='0.5' delay={0.5}>
                         <Flex justify='space-between'>
                             <Logo variants={variants.headerVariants.fadeOut} transition={{ duration: .5 }}>
                                 <span
@@ -80,11 +80,12 @@ export const Header = ({ delaySec }) => {
                                 onClick={toggle}
                                 onMouseEnter={() => setCursorType('pointer turn-dark')}
                                 onMouseLeave={setCursorType}
-                                initial={false}
-                                animate={open ? 'open' : 'closed'}
+                                variants={variants.headerVariants.fadeOut}
                             >
                                 <motion.span
                                     className='menu-text'
+                                    initial={false}
+                                    animate={open ? 'open' : 'closed'}
                                     variants={{
                                         closed: { opacity: 1, transition: { duration: .5, delay: .7 } },
                                         open: { opacity: 0, transition: { duration: .5 } }
@@ -92,7 +93,11 @@ export const Header = ({ delaySec }) => {
                                 >
                                     menu
                                 </motion.span>
-                                <motion.div className='menu-bar-wrapper'>
+                                <motion.div
+                                    className='menu-bar-wrapper'
+                                    initial={false}
+                                    animate={open ? 'open' : 'closed'}
+                                >
                                     <motion.span className='menu-bar' custom={1} variants={variants.headerVariants.menuBarBlock} />
                                     <motion.span className='menu-bar' variants={variants.headerVariants.menuBarMiddle} />
                                     <motion.span className='menu-bar' custom={-1} variants={variants.headerVariants.menuBarBlock} />

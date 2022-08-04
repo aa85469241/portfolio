@@ -1,38 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link as Scroll } from 'react-scroll'
 import { motion } from 'framer-motion'
 // components
 import { AnimeTrigger } from '..'
-// constants
-import { variants } from '../../constants'
 // context
 import { useCursor } from '../../context/cursorContext'
 // styles
 import { PaginationContainer, Pages } from './pagination.style'
 
 const pages = [
-    { id: 1, pageName: 'home' },
-    { id: 2, pageName: 'about' },
-    { id: 3, pageName: 'experiences' },
-    { id: 4, pageName: 'contact' },
+    { id: 1, pageName: 'home', offset: -25 },
+    { id: 2, pageName: 'about', offset: -25 },
+    { id: 3, pageName: 'experiences', offset: -23 },
+    { id: 4, pageName: 'contact', offset: -25 },
 ]
 
-export const Pagination = ({ pagination, setPagination }) => {
+export const Pagination = () => {
 
-    const {setCursorType} = useCursor()
+    const { setCursorType } = useCursor()
+    const [isSelected, setIsSelected] = useState('home')
+
+    const handleSetActive = (to) => {
+        setIsSelected(to)
+    }
 
     return (
         <PaginationContainer>
-            <AnimeTrigger threshold='0.5' delay={4}>
-                <Pages variants={variants.inViewVariants.zoomInFromY}>
+            <AnimeTrigger threshold='0.5' delay={1}>
+                <Pages variants={{
+                    visible: { y: 0, transition: { duration: .5, ease: 'easeInOut' } },
+                    hidden: { y: 400 }
+                }}>
                     {pages.map((page) =>
-                        <div
+                        <Scroll
+                            to={page.pageName}
+                            spy={true}
+                            smooth={true}
+                            offset={page.offset}
+                            duration={700}
+                            onSetActive={handleSetActive}
                             key={'page-' + page.id}
                             className='page-container'
                             onMouseEnter={() => setCursorType('navigate down')}
                             onMouseLeave={setCursorType}
-                            onClick={() => setPagination(page.id - 1)}>
+                            onClick={() => setIsSelected(page.pageName)}
+                        >
                             <span className='page-checkbox'>
-                                {page.id === pagination + 1
+                                {isSelected === page.pageName
                                     && <motion.span
                                         className='selected'
                                         initial={{ opacity: 0 }}
@@ -40,7 +54,7 @@ export const Pagination = ({ pagination, setPagination }) => {
                                     />}
                             </span>
                             <span className='page-name'>
-                                {page.id === pagination + 1
+                                {isSelected === page.pageName
                                     && <motion.span
                                         className='slider'
                                         initial={{ width: 0 }}
@@ -48,7 +62,7 @@ export const Pagination = ({ pagination, setPagination }) => {
                                     />}
                                 {page.pageName}
                             </span>
-                        </div>
+                        </Scroll>
                     )}
                 </Pages>
             </AnimeTrigger>

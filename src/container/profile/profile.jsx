@@ -41,14 +41,19 @@ const Profile = ({ onDisplay, setOnDisplay }) => {
     }
 
     return (
-        <ProfileContainer>
+        <ProfileContainer name='about'>
             <AnimeTrigger threshold='0.5' delay={0.2}>
                 <div className={`profile_wrapper ${display && 'resume-toggleOn'}`}>
                     <IntroSection
                         className={`${display && 'resume-toggleOn'}`}
-                        custom={.1}
-                        variants={variants.inViewVariants.stagger}>
-                        <div className='intro_wrapper'>
+                        variants={variants.inViewVariants.zoomInFromX}
+                        transition={{ duration: .5 }}
+                    >
+                        <motion.div
+                            className='intro_wrapper'
+                            custom={.1}
+                            variants={variants.inViewVariants.stagger}
+                        >
                             <motion.h3 className='intro_title'
                                 variants={variants.inViewVariants.zoomInFromX}
                                 transition={{ duration: .5 }}
@@ -67,7 +72,7 @@ const Profile = ({ onDisplay, setOnDisplay }) => {
                                 variants={variants.inViewVariants.zoomInFromX}
                                 transition={{ duration: .5 }}
                             >*Click resume on right hand side could toggle it on.</motion.span>
-                        </div>
+                        </motion.div>
                     </IntroSection>
                     <Buttons
                         className="button_wrapper"
@@ -98,7 +103,11 @@ const Profile = ({ onDisplay, setOnDisplay }) => {
                             <Button btnType='__rectangle'>see more details</Button>
                         </Link>
                     </Buttons>
-                    <PhotoWrapper className={`${display && 'resume-toggleOn'}`}>
+                    <PhotoWrapper
+                        className={`${display && 'resume-toggleOn'}`}
+                        variants={variants.inViewVariants.zoomInFromXVerse}
+                        transition={{ duration: .5 }}
+                    >
                         <motion.img
                             src={images.selfie}
                             alt='selfie'

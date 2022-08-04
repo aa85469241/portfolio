@@ -200,15 +200,15 @@ export const SkillContainer = styled(motion.div)`
                         inset 4px 4px 2px var(--clr-black),
                         inset -4px -4px 2px var(--clr-black);
     display: grid;
-    grid-template-columns: 40% 40% 20%;
+    grid-template-columns: 80% 20%;
     grid-template-rows: fit-content 1fr 1fr;
     gap: 1rem;
     align-items: center;
     justify-content: center;
     grid-template-areas:
-        "title title sidebar"
-        "main main main"
-        "main main main";
+        "title sidebar"
+        "main main"
+        "main main";
     .blanked {
         grid-column: sidebar;
         position: relative;
@@ -218,7 +218,7 @@ export const SkillContainer = styled(motion.div)`
         border-radius: 20px;    
     }
     ${media.laptop} {
-        grid-template-columns: auto;
+        grid-template-columns: 1fr;
         grid-template-rows: min-content auto;
         grid-template-areas:
             "title"
@@ -229,7 +229,7 @@ export const SkillContainer = styled(motion.div)`
     }
     ${media.mobile} {
         width: 100vw;
-        padding: 0.6rem;
+        padding: 1rem;
     }
 `
 

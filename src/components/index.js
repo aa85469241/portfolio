@@ -1,4 +1,5 @@
 // home page
+export * from './Frame/frame'
 export * from './CustomCursor/cursor'
 export * from './Header/header'
 export * from './Pagination/pagination'
@@ -11,3 +12,5 @@ export * from './Canvas/canvas'
 export * from './Loader/loader'
 export * from './SplitLetters/splitLetter'
 export * from './Display/display'
+export * from './Sliders/Portable/framerSlider'
+export * from './Sliders/Mobile/slickSlider'

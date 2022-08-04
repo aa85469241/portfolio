@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-//framer motion
+import { animateScroll as scroll } from 'react-scroll'
+// framer motion
 import { motion, useAnimation } from 'framer-motion'
 // react interaction observer
 import { useInView } from 'react-intersection-observer'
@@ -13,7 +14,7 @@ import { useCursor } from '../../context/cursorContext'
 import { ContactContainer, ContactSection, ContactInfo, Buttons, BackToTop } from './contact.style'
 
 
-const Contact = ({ setPagination }) => {
+const Contact = () => {
 
     const { setCursorType } = useCursor()
 
@@ -29,8 +30,12 @@ const Contact = ({ setPagination }) => {
     const showInformation = () => contactControl.start('showInfo')
     const hideInformation = () => contactControl.start('hideInfo')
 
+    const scrollToTop = () => {
+        scroll.scrollToTop()
+    }
+
     return (
-        <ContactContainer ref={ref}>
+        <ContactContainer ref={ref} name='contact'>
             <ContactSection initial='disappear' animate={contactControl} variants={{ appear: { transition: { staggerChildren: .2 } } }}>
                 <div className='leading-text-wrapper'>
                     <motion.span
@@ -72,12 +77,12 @@ const Contact = ({ setPagination }) => {
                 variants={variants.contactVariants.backToTop}
                 onMouseEnter={() => setCursorType('pointer')}
                 onMouseLeave={setCursorType}
+                onClick={scrollToTop}
             >
                 <span className="or">or you wanna watch again, then</span>
                 <WaveLetters
                     letters={'back  to  top'}
                     className='back-to-top'
-                    onClick={() => setPagination(0)}
                 />
             </BackToTop>
         </ContactContainer >

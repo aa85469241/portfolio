@@ -1,70 +1,93 @@
 import React from 'react'
-//framer motion
+import { Link as Scroll } from 'react-scroll'
+// framer motion
 import { motion } from 'framer-motion'
 // components
-import { AnimeTrigger } from '../../components'
+import { AnimeTrigger, SplitLetters } from '../../components'
 // constants
 import { variants } from '../../constants'
-// styles
-import { Banner, Section, ScrollSign, Row, RowText } from './hero.style'
+// context
 import { useCursor } from '../../context/cursorContext'
+// styles
+import { Banner, Section, Row, ScrollNavigate } from './hero.style'
 
 
 
-const Hero = ({ setPagination }) => {
+const Hero = () => {
 
     const { setCursorType } = useCursor()
 
     return (
-        <Banner>
+        <Banner name='home'>
             <AnimeTrigger threshold='0.1' delay={0.85}>
                 <Section>
-                    <div className="wrapper">
+                    <motion.div className="wrapper" custom={0.1} variants={variants.inViewVariants.stagger}>
                         <Row>
-                            <motion.span
-                                className='row-text'
+                            <motion.div
+                                className="row-wrap"
                                 variants={variants.inViewVariants.zoomInFromY}
                                 transition={{ duration: .5 }}
-                            >This is a <span className='portfolio'>portfolio,</span></motion.span>
+                            >
+                                <motion.span className='row-text'
+                                >Hi, my name is</motion.span>
+                            </motion.div>
                         </Row>
                         <Row>
-                            <RowText
+                            <motion.div
+                                className="row-wrap"
                                 variants={variants.inViewVariants.zoomInFromY}
                                 transition={{ duration: .5 }}
-                            >presented by </RowText>
+                            >
+                                <motion.span
+                                    className='row-text'
+                                >Chang Cheng Liou</motion.span>
+                            </motion.div>
                         </Row>
                         <Row>
-                            <RowText
+                            <motion.div
+                                className="row-wrap"
                                 variants={variants.inViewVariants.zoomInFromY}
                                 transition={{ duration: .5 }}
-                            >A junior development</RowText>
+                            >
+                                <motion.span
+                                    className='row-text'
+                                >Based in Taichung.</motion.span>
+                            </motion.div>
                         </Row>
-                        <Row>
-                            <RowText
-                                variants={variants.inViewVariants.zoomInFromY}
-                                transition={{ duration: .5 }}
-                            >based in Taichung.</RowText>
-                        </Row>
-                        <ScrollSign
-                            variants={variants.inViewVariants.visibility}
-                            transition={{ duration: 1 }}
-                            onClick={() => setPagination(1)}
-                            onMouseEnter={() => setCursorType('navigate down')}
-                            onMouseLeave={setCursorType}
-                        >
-                            <span className="scroll-sign-text">scroll</span>
-                            <div className='scroll-sign-middle'>
-                                <span className='scroll-sign-text-middle'>t</span>
-                                <span className="scroll-sign">
-                                    <motion.span
-                                        className="scroll-sign-dot"
-                                        variants={variants.inViewVariants.oscillation}
+                        <Row center custom={0.1} variants={variants.inViewVariants.stagger}>
+                            <div className='row-wrap-portfolio'>
+                                <ScrollNavigate
+                                    className="scroll-navigate lets"
+                                    variants={variants.inViewVariants.visibility}
+                                    transition={{ duration: .3, delay: 1.7 }}
+                                >Let's</ScrollNavigate>
+                                <div className="split-letters-flex">
+                                    <SplitLetters
+                                        text='portfolio'
+                                        textClass='row-text-portfolio'
+                                        variants={variants.inViewVariants.zoomInFromY}
+                                        transition={{ duration: .5 }}
                                     />
-                                </span>
+                                </div>
+                                <ScrollNavigate
+                                    className="scroll-navigate explore"
+                                    variants={variants.inViewVariants.visibility}
+                                    transition={{ duration: .3, delay: 1.7 }}
+                                    onMouseEnter={() => setCursorType('navigate down')}
+                                    onMouseLeave={setCursorType}
+                                >
+                                    <Scroll
+                                        to='about'
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-25}
+                                    >
+                                        start to explore
+                                    </Scroll>
+                                </ScrollNavigate>
                             </div>
-                            <span className="scroll-sign-text">discover</span>
-                        </ScrollSign>
-                    </div>
+                        </Row>
+                    </motion.div>
                 </Section>
             </AnimeTrigger>
         </Banner>
