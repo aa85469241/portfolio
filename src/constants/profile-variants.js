@@ -37,8 +37,8 @@ const profile = {
         visible: { opacity: 1, x: 0, transition: { duration: .5 } }
     },
     profileLetters: {
-        hidden: { y: 150 },
-        visible: { y: 0, transition: { duration: .3 } }
+        hidden: { y: 150, opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: .3 } }
     },
     bioHeading: {
         hidden: { y: 100 },
