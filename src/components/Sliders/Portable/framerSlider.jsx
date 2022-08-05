@@ -123,6 +123,7 @@ export const FramerScroll = () => {
                                 </Card>
                                 :
                                 <motion.div
+                                    key={i}
                                     data-dashed-board
                                     variants={{
                                         unlock2: { opacity: [0, 1] }

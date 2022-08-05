@@ -5,10 +5,11 @@ import { motion } from 'framer-motion'
 import styled, { css, ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../../styles/GlobalStyles'
 import { media } from '../../styles/BreakPoint'
+// constants
+import { images } from '../../constants'
 // components
 import { Header, Cursor, Pagination, Display, Frame } from '../../components'
 import { useGlobalStateContext } from '../../context/GlobalContext'
-import { images } from '../../constants'
 
 
 const LayoutContainer = styled(motion.div)`
@@ -80,6 +81,7 @@ export const Layout = ({
         border: 'var(--clr-white)',
         shadow: 'var(--drop-shadow-bg-dark)',
         heroFontBackDrop: 'var(--clr-backdrop-light)',
+        loadingBar: 'linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% )',
     }
     const lightTheme = {
         background: 'var(--clr-bg-light)',
@@ -88,6 +90,7 @@ export const Layout = ({
         border: 'var(--clr-black)',
         shadow: 'var(--drop-shadow-bg-light)',
         heroFontBackDrop: 'var(--clr-backdrop-dark)',
+        loadingBar: 'radial-gradient( circle 610px at 5.2% 51.6%,  rgba(5,8,114,1) 0%, rgba(7,3,53,1) 97.5% )',
     }
     // context
     const { currentTheme } = useGlobalStateContext()

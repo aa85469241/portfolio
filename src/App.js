@@ -1,8 +1,8 @@
 import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+// context
 import { CursorManager } from './context/cursorContext'
-
 // pages
 import Home from './pages/index'
 import About from './pages/about'

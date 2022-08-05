@@ -13,18 +13,6 @@ const loaderVariants = {
             }
         }
     },
-    wrapOut: {
-        exit: (custom) => ({
-            y: 1000 * custom,
-            transition: { duration: 1 }
-        })
-    },
-    wrapOutHorizontal: {
-        exit: (custom) => ({
-            x: 1000 * custom,
-            transition: { duration: 1 }
-        })
-    },
     loadingText: {
         initial: { scale: 0 },
         animate: { scale: 1, transition: { type: 'spring', stiffness: 100, when: 'beforeChildren' } },

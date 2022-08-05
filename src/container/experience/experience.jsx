@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 // constants
 import { variants } from '../../constants'
 // components   
-import { AnimeTrigger, FramerScroll, StickSlider } from '../../components'
+import { AnimeTrigger, FramerScroll, SlickSlider } from '../../components'
 // hooks
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 // styles
@@ -28,7 +28,7 @@ const Experience = () => {
                     >
                         <motion.h1 className="experience-title">Experiences</motion.h1>
                     </motion.div>
-                    {!isMatch ? <FramerScroll /> : <StickSlider />}
+                    {!isMatch ? <FramerScroll /> : <SlickSlider />}
                 </Root>
             </AnimeTrigger >
         </ExpContainer >

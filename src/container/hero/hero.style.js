@@ -53,6 +53,7 @@ export const Row = styled(motion.div)`
         padding: 1rem;
         .row-text {
             display: inline-block;
+            border-bottom: 2px solid ${props => props.theme.border};
             font-size: clamp(1.50rem, calc(0.41rem + 4.23vw), 4.50rem);
             text-size-adjust: auto;
             font-family: var(--font-family-navigation);
@@ -79,6 +80,7 @@ export const Row = styled(motion.div)`
                 font-family: var(--font-family-hero);
                 letter-spacing: 15px;
                 text-transform: uppercase;
+                color: ${props => props.theme.text};
             }
         }
     }
@@ -129,14 +131,15 @@ export const ScrollNavigate = styled(motion.div)`
     }
     &.explore {
         align-self: center;
-        -webkit-text-stroke: 1px;
-        -webkit-text-fill-color: transparent;
-        -webkit-text-stroke-color: var(--clr-red);   
+        color: var(--clr-red);
+        text-shadow: -1px 1px 0 DarkRed,
+                    -2px 2px 0 DarkRed,
+                    -3px 3px 0 DarkRed,
+                    -4px 4px 0 DarkRed;
         letter-spacing: 2px; 
         text-transform: uppercase;
         &:hover {
-            -webkit-text-stroke-color: transparent;
-            -webkit-text-fill-color: var(--clr-red); 
+            letter-spacing: 3px;
             transition: .5s;
         }
     }

@@ -21,7 +21,6 @@ export const NavMenu = styled(motion.nav)`
     background-color: #DCD9D4; //#DCD9D4
     background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
     background-blend-mode: soft-light,screen;
-    box-shadow: -5px 0 10px #d1cdc7;
     transform-origin: top right;
     z-index: 25;
     ${media.laptop} {

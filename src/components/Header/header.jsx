@@ -53,7 +53,7 @@ export const Header = ({ delaySec }) => {
         <>
             <HeaderNav>
                 <Container>
-                    <AnimeTrigger threshold='0.5' delay={0.5}>
+                    <AnimeTrigger threshold='0.5' delay={delaySec ? delaySec : 11}>
                         <Flex justify='space-between'>
                             <Logo variants={variants.headerVariants.fadeOut} transition={{ duration: .5 }}>
                                 <span

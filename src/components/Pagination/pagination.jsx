@@ -26,7 +26,7 @@ export const Pagination = () => {
 
     return (
         <PaginationContainer>
-            <AnimeTrigger threshold='0.5' delay={1}>
+            <AnimeTrigger threshold='0.5' delay={11}>
                 <Pages variants={{
                     visible: { y: 0, transition: { duration: .5, ease: 'easeInOut' } },
                     hidden: { y: 400 }

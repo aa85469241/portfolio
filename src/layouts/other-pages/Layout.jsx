@@ -52,12 +52,12 @@ export const Layout = ({ children }) => {
                 variants={variants.pageTransform}
             >
                 <GlobalStyles />
-                <Header />
+                <Header delaySec={1} />
                 <Cursor dotColor='grey' outlineColor='grey' />
                 <main>
                     {children}
                 </main>
             </LayoutContainer>
-        </ThemeProvider>
+        </ThemeProvider >
     )
 }

@@ -20,11 +20,10 @@ const PrevArrow = ({ onClick }) => {
     return <Arrow className='prev' onClick={onClick}>prev</Arrow>
 }
 
-const Slide = ({ key, initial, animate, variants, children }) => {
+const Slide = ({ initial, animate, variants, children }) => {
 
     return (
         <SlideContainer
-            key={key}
             initial={initial}
             animate={animate}
             variants={variants}
@@ -58,7 +57,7 @@ const variants = {
     }
 }
 
-export const StickSlider = () => {
+export const SlickSlider = () => {
 
     const [onSlide, setSlide] = useState(0)
 
@@ -114,11 +113,10 @@ export const StickSlider = () => {
                 <motion.div variants={{ visible: { opacity: 1, transition: { duration: 1 } }, hidden: { opacity: 0 } }}>
                     <Slider {...settings}>
                         {data.experiences.map((item, index) =>
-                            <>
+                            <div key={index}>
                                 {item.card === true
                                     ?
                                     <Slide
-                                        key={index}
                                         initial='initial'
                                         animate={onSlide === index ? 'selected' : 'initial'}
                                         variants={variants.slide}
@@ -128,7 +126,7 @@ export const StickSlider = () => {
                                         <ul className='slide-list'>
                                             {item.entries?.map((entry) =>
                                                 <li
-                                                    key={'line-' + entry.id}
+                                                    key={entry.id}
                                                     className='slide-content'
                                                 >
                                                     {entry.info}
@@ -152,7 +150,7 @@ export const StickSlider = () => {
                                         </motion.span>
                                     </OnBoard>
                                 }
-                            </>
+                            </div>
                         )}
                     </Slider>
                 </motion.div>

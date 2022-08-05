@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 // constant
 import { variants } from '../../constants'
-// hooks
-import { useMediaQuery } from '../../hooks/useMediaQuery'
 // styles
 import { LoaderOverlay, LoaderTexts, LettersContainer, Loading } from './loader.style'
 
@@ -36,7 +34,6 @@ const Letters = ({ letters, onAnimationComplete }) => {
 export const Loader = ({ setIsLoading }) => {
 
     const [onLoading, setLoading] = useState(true)
-    const isMatch = useMediaQuery("(max-width: 414px)")
 
     const onAnimationComplete = () => {
         setTimeout(() => {
@@ -47,10 +44,6 @@ export const Loader = ({ setIsLoading }) => {
     return (
         <>
             <LoaderOverlay initial={false} exit='exit'>
-                <motion.span className='overlay-wrap' custom={1} variants={!isMatch ? variants.loaderVariants.wrapOut : variants.loaderVariants.wrapOutHorizontal} />
-                <motion.span className='overlay-wrap' custom={-1} variants={!isMatch ? variants.loaderVariants.wrapOut : variants.loaderVariants.wrapOutHorizontal} />
-                <motion.span className='overlay-wrap' custom={1} variants={!isMatch ? variants.loaderVariants.wrapOut : variants.loaderVariants.wrapOutHorizontal} />
-                <motion.span className='overlay-wrap' custom={-1} variants={!isMatch ? variants.loaderVariants.wrapOut : variants.loaderVariants.wrapOutHorizontal} />
                 <LoaderTexts
                     initial='initial'
                     animate='animate'
