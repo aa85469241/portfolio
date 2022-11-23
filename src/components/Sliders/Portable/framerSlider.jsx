@@ -12,7 +12,6 @@ import { inViewVariants, cardVariants } from "../../../variants"
 // component
 import { Lock } from '../../../components'
 // styles
-import { Bar } from '../../../styles/GlobalStyles'
 import {
     Carousel,
     Scroller,

@@ -22,11 +22,10 @@ const Hero = () => {
                     }}
                     transition={{ duration: 1 }}
                 >
-                    {/* {exitAnimationComplete
+                    {exitAnimationComplete
                         ? <Intro />
                         : <Puzzle />
-                    } */}
-                    <Intro />
+                    }
                 </Section>
             </AnimeTrigger>
         </Banner>
