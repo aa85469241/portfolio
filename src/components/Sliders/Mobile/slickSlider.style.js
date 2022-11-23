@@ -86,7 +86,7 @@ export const SlideContainer = styled(motion.div)`
                 font-size: 1.5rem;
             }
             ${media.mobile} {
-                line-height: 1.4;
+                line-height: 2;
                 .slide-content {
                     font-size: 0.9rem;
                 }
