@@ -34,6 +34,7 @@ const BottomText = styled(motion.div)`
         font-size: 30px;
         text-transform: uppercase;
         letter-spacing: 3px;
+        color: ${props => props.theme.text};
         opacity: 0.9;
         span {
             color: var(--clr-red);

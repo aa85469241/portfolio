@@ -12,7 +12,7 @@ import { Banner, Section } from './hero.style'
 const Hero = () => {
 
     const { exitAnimationComplete } = useGlobalStateContext()
-    const isMatch = useMediaQuery("max-width: 992px")
+    const isMatch = useMediaQuery("(max-width: 992px)")
 
     return (
         <Banner name='home'>
