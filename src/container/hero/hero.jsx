@@ -3,6 +3,7 @@ import React from 'react'
 import { AnimeTrigger, Intro, Puzzle } from '../../components'
 // context
 import { useGlobalStateContext } from '../../context/GlobalContext'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 // styles
 import { Banner, Section } from './hero.style'
 
@@ -11,6 +12,7 @@ import { Banner, Section } from './hero.style'
 const Hero = () => {
 
     const { exitAnimationComplete } = useGlobalStateContext()
+    const isMatch = useMediaQuery("max-width: 992px")
 
     return (
         <Banner name='home'>
@@ -22,9 +24,15 @@ const Hero = () => {
                     }}
                     transition={{ duration: 1 }}
                 >
-                    {exitAnimationComplete
-                        ? <Intro />
-                        : <Puzzle />
+                    {!isMatch
+                        ?
+                        <>
+                            {exitAnimationComplete
+                                ? <Intro />
+                                : <Puzzle />
+                            }
+                        </>
+                        : <Intro />
                     }
                 </Section>
             </AnimeTrigger>
