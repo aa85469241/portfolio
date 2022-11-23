@@ -79,14 +79,13 @@ export const SlideContainer = styled(motion.div)`
             margin-bottom: 0.5rem;
         }
         .slide-list {
-            list-style: numbers;
+            list-style: none;
             line-height: 2;
             padding: 0.8rem 1.8rem;
             .slide-content {
                 font-size: 1.5rem;
             }
             ${media.mobile} {
-                list-style: none;
                 padding: 0.8rem 0.1rem;
                 .slide-content {
                     font-size: 0.9rem;

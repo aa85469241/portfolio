@@ -31,7 +31,7 @@ const experiences = [
         date: "2015/7 - 2015/9",
         entries: [
             { info: "按時完成產線目標", id: 1 },
-            { info: "適時加班以完成額外的訂單", id: 2 },
+            { info: "配合加班以完成額外的訂單", id: 2 },
         ],
     },
     {
