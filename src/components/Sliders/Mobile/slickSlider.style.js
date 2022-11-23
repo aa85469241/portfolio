@@ -86,16 +86,16 @@ export const SlideContainer = styled(motion.div)`
                 font-size: 1.5rem;
             }
             ${media.mobile} {
-                line-height: 1.25;
+                line-height: 1.4;
                 .slide-content {
-                    font-size: 1.2rem;
+                    font-size: 0.9rem;
                 }
             }
         }
         ${media.mobile} {
             .slide-date, 
             .slide-title{
-                font-size: 1.3rem;
+                font-size: 1rem;
             }
         }
     }
@@ -118,6 +118,7 @@ export const OnBoard = styled(motion.div)`
         bottom: 10%;
         background-color: ${props => props.theme.background};
         padding: 0.3rem;
+        text-align: center;
         font-size: 1rem;
     }
 `
