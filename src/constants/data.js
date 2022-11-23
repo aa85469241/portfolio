@@ -7,8 +7,8 @@ const experiences = [
         title: "水澤鮮活調飲",
         date: "2013/7 - 2013/10",
         entries: [
-            { info: "前場收銀以及飲料調製", id: 1 },
-            { info: "後場原料烹煮", id: 2 },
+            { info: "1.前場收銀以及飲料調製", id: 1 },
+            { info: "2.後場原料烹煮", id: 2 },
         ],
     },
     {
@@ -19,7 +19,7 @@ const experiences = [
         title: "光國股份有限公司",
         date: "2014/7 - 2014/9",
         entries: [
-            { info: "配合並完成不同產線上的工作", id: 1 },
+            { info: "1.配合並完成不同產線上的工作", id: 1 },
         ],
     },
     {
@@ -30,8 +30,8 @@ const experiences = [
         title: "吉利高股份有限公司",
         date: "2015/7 - 2015/9",
         entries: [
-            { info: "按時完成產線目標", id: 1 },
-            { info: "配合加班以完成額外的訂單", id: 2 },
+            { info: "1.按時完成產線目標", id: 1 },
+            { info: "2.配合加班以完成額外的訂單", id: 2 },
         ],
     },
     {
@@ -42,9 +42,9 @@ const experiences = [
         title: "漢民科技",
         date: '2018/5 - 2019/6',
         entries: [
-            { info: "例行性的機台維護", id: 1 },
-            { info: "機台故障時的trouble shooting", id: 2 },
-            { info: "協助裝機", id: 3 },
+            { info: "1.例行性的機台維護", id: 1 },
+            { info: "2.機台故障時的trouble shooting", id: 2 },
+            { info: "3.協助裝機", id: 3 },
         ],
     },
     {
@@ -63,9 +63,9 @@ const experiences = [
         title: "三陽機車",
         date: '2020/3 - 至今',
         entries: [
-            { info: "機車養護及維修", id: 1 },
-            { info: "機油、輪胎等零件更換", id: 2 },
-            { info: "過戶、報廢及車輛載送等外務處理", id: 3 },
+            { info: "1.機車養護及維修", id: 1 },
+            { info: "2.機油、輪胎等零件更換", id: 2 },
+            { info: "3.過戶、報廢及車輛載送等外務處理", id: 3 },
         ],
     },
     {
@@ -76,10 +76,10 @@ const experiences = [
         title: "AI大數據人才培訓班",
         date: '2020/4 - 2020/8',
         entries: [
-            { info: "利用Python及R語言進行資料分析", id: 1 },
-            { info: "掌握基本機器學習及深度學習的能力", id: 2 },
-            { info: "前端網頁製作和後端mysql的應用", id: 3 },
-            { info: "PowerBI視覺化資料分析", id: 4 },
+            { info: "1.利用Python及R語言進行資料分析", id: 1 },
+            { info: "2.掌握基本機器學習及深度學習的能力", id: 2 },
+            { info: "3.前端網頁製作和後端mysql的應用", id: 3 },
+            { info: "4.PowerBI視覺化資料分析", id: 4 },
         ],
     },
     {
@@ -90,10 +90,10 @@ const experiences = [
         title: "Project-程式開發",
         date: '2021/1 - 至今',
         entries: [
-            { info: "編寫爬蟲爬取資料", id: 1 },
-            { info: "利用ReactJS及javascript開發網站", id: 2 },
-            { info: "運用framer motion及gsap等套件編寫動畫效果", id: 3 },
-            { info: "已初步掌握C#及Asp.net等語法, 未來期望能擴大更多領域的開發能力", id: 4 },
+            { info: "1.編寫爬蟲爬取資料", id: 1 },
+            { info: "2.利用ReactJS及javascript開發網站", id: 2 },
+            { info: "3.運用framer motion及gsap等套件編寫動畫效果", id: 3 },
+            { info: "4.已初步掌握C#及Asp.net等語法, 未來期望能擴大更多領域的開發能力", id: 4 },
         ],
     },
 ];
