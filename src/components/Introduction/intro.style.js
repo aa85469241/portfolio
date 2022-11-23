@@ -20,6 +20,9 @@ export const SortArea = styled(motion.div)`
         background-size: contain;
         mix-blend-mode: multiply;
         opacity: 0.7;
+        ${media.mobile} {
+            opacity: 0.5;
+        }
     }
 `
 
