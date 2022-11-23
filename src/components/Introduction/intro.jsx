@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link as Scroll } from 'react-scroll'
-import { TbArrowDown } from "react-icons/tb"
+import { AiOutlineArrowDown } from "react-icons/ai"
 import { AnimeTrigger } from '../../components'
 import { images } from '../../constants'
 import { heroVariants } from '../../variants/heroVariants'
@@ -83,7 +83,7 @@ export const Intro = () => {
                             spy={true}
                             smooth={true}
                         >
-                            <TbArrowDown className="arrow-down" />
+                            <AiOutlineArrowDown className="arrow-down" />
                         </Scroll>
                     </ScrollDown>
                 </IntroSection>
