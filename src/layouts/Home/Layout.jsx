@@ -93,7 +93,7 @@ export const Layout = ({
         shadow: 'var(--drop-shadow-bg-light)',
         box_shadow: 'var(--clr-black)',
         heroFontBackDrop: 'var(--clr-backdrop-dark)',
-        loadingBar: 'radial-gradient( circle 610px at 5.2% 51.6%,  rgba(5,8,114,1) 0%, rgba(7,3,53,1) 97.5% )',
+        loadingBar: 'radial-gradient( circle 610px at 5.2% 51.6%,  #1b1b1e 0%, #0a0915 97.5% )',
     }
     // context
     const { currentTheme } = useGlobalStateContext()

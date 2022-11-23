@@ -58,7 +58,7 @@ export const TopRow = styled(motion.div)`
     }
     ${media.tablet} {
         .wrapper > .row-text {
-            font-size: 3.1rem;
+            font-size: 2.7rem;
         }
     }
 `
@@ -105,7 +105,7 @@ export const MiddleRow = styled(motion.div)`
                     "card";
         .wrapper {
             margin: 1rem 0;
-            .row-text {font-size: 2rem;}
+            .row-text {font-size: 1.8rem;}
             .left-side-arrow {
                 width: 10rem;
             }
@@ -125,7 +125,7 @@ export const BottomRow = styled(motion.div)`
     ${media.tablet} {
         margin-top: 0.5rem;
         .row-text {
-            font-size: 3.1rem;
+            font-size: 2.7rem;
         }
     }
 `
@@ -228,5 +228,9 @@ export const ScrollDown = styled(motion.div)`
     .arrow-down {
         font-size: 2.5rem;
         color: ${props => props.theme.text};
+    }
+    ${media.tablet} {
+        padding: 0.5rem;
+        .arrow-down {font-size: 1.9rem};
     }
 `

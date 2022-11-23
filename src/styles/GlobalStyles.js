@@ -25,7 +25,7 @@ export const GlobalStyles = createGlobalStyle`
         --clr-dark-red: #b30000;
         --clr-brown: #EFD0A2;
         --clr-gray: #A9A9A9;
-        --clr-wood: #DEB887;
+        --clr-wood: rgba(222, 184, 135, 0.6);
         --clr-wood-strong: #a06e2c;
         --clr-cursor: ${props => props.theme.text};
         --clr-bg-light: hsl(37, 27%, 94%);

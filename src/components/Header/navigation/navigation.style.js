@@ -9,8 +9,6 @@ export const NavMenu = styled(motion.nav)`
     width: 40%;
     height: calc(100vh - 50px);
     background-color: #DCD9D4;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
-    background-blend-mode: soft-light, screen;
     border: 1px solid var(--clr-black);
     box-shadow: 2px 2px 2px var(--clr-black);
     transform-origin: top right;
@@ -20,7 +18,7 @@ export const NavMenu = styled(motion.nav)`
         width: 50%;
     }
     ${media.mobile} {
-        width: 100%;
+        width: calc(100% - 50px);
         box-shadow: none;
         aspect-ratio: none;
     }
@@ -80,6 +78,9 @@ export const NavMenu = styled(motion.nav)`
                     }
                 }
             }
+        }
+        ${media.mobile} {
+            padding-top: 20%;
         }
     }
 `
