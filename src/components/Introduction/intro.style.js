@@ -58,7 +58,7 @@ export const TopRow = styled(motion.div)`
     }
     ${media.tablet} {
         .wrapper > .row-text {
-            font-size: 2.7rem;
+            font-size: 2.1rem;
         }
     }
 `
@@ -125,7 +125,7 @@ export const BottomRow = styled(motion.div)`
     ${media.tablet} {
         margin-top: 0.5rem;
         .row-text {
-            font-size: 2.7rem;
+            font-size: 2.1rem;
         }
     }
 `
@@ -235,6 +235,7 @@ export const ScrollDown = styled(motion.div)`
         color: ${props => props.theme.text};
     }
     ${media.tablet} {
+        bottom: 7%;
         padding: 0.5rem;
         .arrow-down {font-size: 1.9rem};
     }
