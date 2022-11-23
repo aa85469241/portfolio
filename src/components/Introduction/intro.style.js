@@ -210,6 +210,11 @@ export const CityCardContainer = styled(motion.div)`
         transform: translateX(-50%);
         opacity: 0.7;
     }
+    ${media.tablet} {
+        .backdrop {
+            height: 6rem;
+        }
+    }
 `
 
 export const ScrollDown = styled(motion.div)`
