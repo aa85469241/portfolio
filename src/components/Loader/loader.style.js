@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { media } from '../../styles/BreakPoint'
 
 export const LoaderOverlay = styled(motion.div)`
     position: fixed;
@@ -30,7 +31,7 @@ export const LettersContainer = styled(motion.div)`
     }
     .loader-text-wrap {
         width: 100px;
-        height: 100px;
+        aspect-ratio: 1;
         border: 2px solid ${props => props.theme.border};
         display: flex;
         align-items: center;
@@ -41,6 +42,15 @@ export const LettersContainer = styled(motion.div)`
             font-family: var(--font-family-navigation);
             text-transform: uppercase;
             color: ${props => props.theme.text};
+        }
+        ${media.laptop} {
+            width: 75px;
+        }
+        ${media.tablet} {
+            width: 50px;
+        }
+        ${media.mobile} {
+            width: 40px;
         }
     }
 `

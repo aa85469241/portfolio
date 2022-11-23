@@ -23,7 +23,6 @@ export const ExpContainer = styled.div`
             text-transform: uppercase;
             color: ${props => props.theme.text};
             margin: 0;
-            text-shadow: 3px 3px 3px grey;
             &::first-letter {
                 font-size: calc(var(--step-title) * 1.2);
             }
@@ -49,17 +48,16 @@ export const Root = styled.section`
     display: grid;
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    grid-margin: 3rem;
     grid-gap: 0 3rem;
     margin: 0 auto;
     ${media.laptop} {
         grid-template-columns: repeat(9, 1fr);
-        grid-margin: 1.5rem;
+        margin: 1.5rem;
         grid-gap: 0 1.5rem;
     }
     ${media.tablet} {
         grid-template-columns: repeat(7, 1fr);
-        grid-margin: 1rem;
+        margin: 1rem;
         grid-gap: 0 1rem;
     }
 `

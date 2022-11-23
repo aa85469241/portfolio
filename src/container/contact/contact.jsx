@@ -7,7 +7,9 @@ import { useInView } from 'react-intersection-observer'
 // components
 import { Button, Mail, WaveLetters } from '../../components'
 // constant
-import { images, variants } from '../../constants'
+import { images } from '../../constants'
+// variants
+import { contactVariants } from "../../variants"
 // context
 import { useCursor } from '../../context/cursorContext'
 // styles
@@ -40,17 +42,17 @@ const Contact = () => {
                 <div className='leading-text-wrapper'>
                     <motion.span
                         className="contact-leading-text"
-                        variants={variants.contactVariants.leadingText}
+                        variants={contactVariants.leadingText}
                     >
                         Thanks for your patience reading my portfolio.
                         If you really love this website and wanna talk to me,
                         please press the button below.
                     </motion.span>
                 </div>
-                <ContactInfo initial='hideInfo' animate={contactControl} variants={variants.contactVariants.zIndex}>
+                <ContactInfo initial='hideInfo' animate={contactControl} variants={contactVariants.zIndex}>
                     <Mail />
-                    <motion.span className="contact-number" variants={variants.contactVariants.textFall}>0988207525</motion.span>
-                    <motion.img src={images.crack} alt="crack" className="crack" variants={variants.contactVariants.crack} />
+                    <motion.span className="contact-number" variants={contactVariants.textFall}>0988207525</motion.span>
+                    <motion.img src={images.crack} alt="crack" className="crack" variants={contactVariants.crack} />
                     <motion.svg
                         className='close-button'
                         viewBox="0 0 830 152"
@@ -59,7 +61,7 @@ const Contact = () => {
                         onMouseLeave={setCursorType}
                     >
                         <motion.path
-                            variants={variants.contactVariants.svgPath}
+                            variants={contactVariants.svgPath}
                             d="M379.293 111.004L450.004 40.2929M380.707 40.2929L451.418 111.004M0 76H300M299.5 151V1M300 0.5H340M300 150.5H340M830 76H530M530.5 151V1M530 0.5H490M530 150.5H490M490 76C490 117.421 456.421 151 415 151C373.579 151 340 117.421 340 76C340 34.5786 373.579 1 415 1C456.421 1 490 34.5786 490 76Z" stroke="black" />
                     </motion.svg>
                 </ContactInfo>
@@ -69,12 +71,12 @@ const Contact = () => {
                         onClick={showInformation}
                         onMouseEnter={() => setCursorType('pointer')}
                         onMouseLeave={setCursorType}
-                        variants={variants.contactVariants.contactButton}
+                        variants={contactVariants.contactButton}
                     >Contact me</Button>
                 </Buttons>
             </ContactSection>
             <BackToTop
-                variants={variants.contactVariants.backToTop}
+                variants={contactVariants.backToTop}
                 onMouseEnter={() => setCursorType('pointer')}
                 onMouseLeave={setCursorType}
                 onClick={scrollToTop}

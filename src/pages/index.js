@@ -18,7 +18,7 @@ const Home = () => {
             setOnDisplay={setOnDisplay}
         >
             <AnimatePresence>
-                {isLoading
+                {/* {isLoading
                     ? <motion.div key='loader'>
                         <Loader isLoading={isLoading} setIsLoading={setIsLoading} />
                     </motion.div>
@@ -29,7 +29,13 @@ const Home = () => {
                         <Experience />
                         <Contact />
                     </>
-                }
+                } */}
+                <>
+                    <Hero isLoading={isLoading} />
+                    <Profile onDisplay={onDisplay} setOnDisplay={setOnDisplay} />
+                    <Experience />
+                    <Contact />
+                </>
             </AnimatePresence>
         </Layout>
     )

@@ -6,9 +6,11 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { AnimatePresence, motion } from 'framer-motion'
 // context
 import { useCursor } from '../../../context/cursorContext'
+// constants
+import { images } from '../../../constants'
+import { headerVariants } from '../../../variants'
 // styles
-import { images, variants } from '../../../constants'
-import { NavMenu, Contact, List } from './navigation.style'
+import { NavMenu, Contact, List, NavHeader } from './navigation.style'
 
 
 const items = [
@@ -56,13 +58,15 @@ const Navigation = ({ open }) => {
         <NavMenu
             initial={false}
             animate={open ? 'open' : 'closed'}
-            variants={variants.headerVariants.navWrapper}
+            variants={headerVariants.navWrapper}
         >
-            <motion.ul
-                className='nav-list'
-                variants={variants.headerVariants.stagger}>
+            <NavHeader>
+                <motion.div className="header-text" variants={headerVariants.header}>Menu</motion.div>
+                <motion.hr variants={headerVariants.headerLine} />
+            </NavHeader>
+            <motion.ul className='nav-list'>
                 {items.map((item) => (
-                    <motion.li key={item.id} variants={variants.headerVariants.item}>
+                    <motion.li key={item.id} variants={headerVariants.item}>
                         <NavLink
                             to={item.path}
                             className={`navigate ${item.path === location.pathname && 'active'}`}
@@ -72,7 +76,7 @@ const Navigation = ({ open }) => {
                         >{item.title}</NavLink>
                     </motion.li>
                 ))}
-                <Contact variants={variants.headerVariants.item}>
+                <Contact variants={headerVariants.item}>
                     <motion.span
                         className={`navigate ${actived ? 'expanded' : ''}`}
                         onMouseEnter={onHover}
@@ -95,19 +99,19 @@ const Navigation = ({ open }) => {
                                 initial='initial'
                                 animate={actived && 'active'}
                                 exit='exit'
-                                variants={variants.headerVariants.stagger}
+                                variants={headerVariants.stagger}
                             >
                                 <CopyToClipboard text='0988207525'
                                     onCopy={() => handleCopy('Phone')}
                                 >
-                                    <motion.span className='icon-wrapper phone' variants={variants.headerVariants.icon}>
+                                    <motion.span className='icon-wrapper phone' variants={headerVariants.icon}>
                                         <img src={images.phone} alt="phone" className="phone-icon" />
                                     </motion.span>
                                 </CopyToClipboard>
                                 <CopyToClipboard text='defghl7563000@gmail.com'
                                     onCopy={() => handleCopy('Mail')}
                                 >
-                                    <motion.span className='icon-wrapper mail' variants={variants.headerVariants.icon}>
+                                    <motion.span className='icon-wrapper mail' variants={headerVariants.icon}>
                                         <img src={images.mail} alt="mail" className="mail-icon" />
                                     </motion.span>
                                 </CopyToClipboard>

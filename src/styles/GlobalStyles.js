@@ -1,13 +1,26 @@
 import styled, { createGlobalStyle, css } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import { motion } from 'framer-motion'
+import BrightWoff from '../assets/font/BrightDemo.woff'
+import BoldestEnough from '../assets/font/BoldestEnough.otf'
+
+export const FontStyles = createGlobalStyle`
+    @font-face {
+        font-family: "bright";
+        src: url(${BrightWoff}) format("woff");
+    }
+    @font-face {
+        font-family: "boldest_enough";
+        src: url(${BoldestEnough}) format("opentype");
+    }
+`
 
 export const GlobalStyles = createGlobalStyle`
     ${normalize}
 
     :root {
-        --clr-black: #000000;
-        --clr-white: #FFFFFF;
+        --clr-black: #333333;
+        --clr-white: rgb(253, 245, 230);
         --clr-red: #EF4A4A;
         --clr-dark-red: #b30000;
         --clr-brown: #EFD0A2;
@@ -15,17 +28,18 @@ export const GlobalStyles = createGlobalStyle`
         --clr-wood: #DEB887;
         --clr-wood-strong: #a06e2c;
         --clr-cursor: ${props => props.theme.text};
-        --clr-bg-light: hsl(37, 27%, 94%);//#f4f1ec #FAF6F3
+        --clr-bg-light: hsl(37, 27%, 94%);
         --clr-bg-light-diff: hsl(0, 0%, 20%);
         --clr-bg-dark: hsl(0, 0%, 29%);
         --clr-bg-dark-diff: hsl(43, 21%, 83%);
         --clr-backdrop-light: hsla(0, 0%, 100%, 0.5);
         --clr-backdrop-dark: hsla(0, 0%, 0%, 0.5);
+        --clr-intro-card-bg: hsla(50, 10%, 85%);
 
         --font-family-navigation: 'Russo One', sans-serif;
-        --font-family-hero: 'Rubik Glitch', cursive;
+        --font-family-hero: 'boldest_enough';
         --font-family-main: 'Changa', sans-serif;
-        --font-family-chinese: arial,"Microsoft JhengHei","微軟正黑體",sans-serif;
+        --font-family-chinese: arial, "Microsoft JhengHei","微軟正黑體",sans-serif;
 
         // font size
         --step--1: clamp(0.42rem, 0.15rem + 1.50vw, 1.50rem);
@@ -75,7 +89,6 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         background-color: ${props => props.theme.background};
-        line-hight: 1.5;
         overflow-x: hidden;
         user-select: none;
         &::-webkit-scrollbar {

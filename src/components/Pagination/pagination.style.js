@@ -26,6 +26,7 @@ export const Pages = styled(motion.div)`
     align-items: start;
     justify-content: space-evenly;
     gap: 1rem;
+    padding: 10px;
     .page-container {
         position: relative;
         display: flex;

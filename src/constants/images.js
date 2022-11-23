@@ -11,7 +11,10 @@ import magnify from '../assets/images/magnify.svg'
 import dashedBoard from '../assets/images/dashedBoard.svg'
 import airplane from '../assets/images/airplane.svg'
 import lines_pattern from '../assets/images/lines_pattern.svg'
-
+import stamp_outline from '../assets/images/stamp.svg'
+import skyline from '../assets/images/skyline.svg'
+import grid_bg from '../assets/images/grid_bg.svg'
+import silhouette_selfie from '../assets/images/silhouette_selfie.svg'
 
 
 const pictures = {
@@ -30,6 +33,10 @@ const pictures = {
     dashedBoard,
     airplane,
     lines_pattern,
+    stamp_outline,
+    skyline,
+    grid_bg,
+    silhouette_selfie,
 }
 
 export default pictures

@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { variants, data } from '../../constants'
+import { data } from '../../constants'
+import { contactVariants } from "../../variants"
 import { media } from '../../styles/BreakPoint'
 
 const SvgContainer = styled(motion.div)`
@@ -40,7 +41,7 @@ export const Mail = () => {
         <SvgContainer>
             <Svg>
                 {data.mailSvgPath.map((path, index) =>
-                    <motion.path key={index} d={path.d} variants={variants.contactVariants.svgPath} />
+                    <motion.path key={index} d={path.d} variants={contactVariants.svgPath} />
                 )}
             </Svg>
         </SvgContainer>

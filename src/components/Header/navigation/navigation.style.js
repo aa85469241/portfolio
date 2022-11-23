@@ -2,26 +2,19 @@ import styled from 'styled-components'
 import { media } from '../../../styles/BreakPoint'
 import { motion } from 'framer-motion'
 
-export const Overlay = styled(motion.div)`
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(200, 200, 200, 0.9);
-    z-index: 100;
-`
-
 export const NavMenu = styled(motion.nav)`
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 25px;
+    right: 25px;
     width: 40%;
-    height: 100vh;
-    /* aspect-ratio: 7 / 10; */
-    background-color: #DCD9D4; //#DCD9D4
+    height: calc(100vh - 50px);
+    background-color: #DCD9D4;
     background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
-    background-blend-mode: soft-light,screen;
+    background-blend-mode: soft-light, screen;
+    border: 1px solid var(--clr-black);
+    box-shadow: 2px 2px 2px var(--clr-black);
     transform-origin: top right;
+    overflow: hidden;
     z-index: 25;
     ${media.laptop} {
         width: 50%;
@@ -34,10 +27,11 @@ export const NavMenu = styled(motion.nav)`
     .nav-list {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         gap: 3rem;
-        height: 100%;
+        height: 80%;
+        padding-top: 10%;
         li {
             position: relative;
             display: block;
@@ -87,6 +81,27 @@ export const NavMenu = styled(motion.nav)`
                 }
             }
         }
+    }
+`
+
+export const NavHeader = styled(motion.div)`
+    position: relative;
+    height: 20%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .header-text {
+        font-size: clamp(2.5rem, calc(1.18rem + 2.67vw), 3.75rem);
+        font-family: var(--font-family-navigation);
+        color: var(--clr-bg-dark);
+    }
+    hr {
+        background-color: var(--clr-bg-dark);
+        width: 100%;
+        height: 3px;
+        transform-origin: center left;
     }
 `
 

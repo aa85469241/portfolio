@@ -107,6 +107,7 @@ export const Buttons = styled(motion.div)`
     justify-content: space-evenly;
     border: 3px solid ${props => props.theme.border};
     border-radius: 0 0 0 20px;
+    box-shadow: 0px 3px 1px ${props => props.theme.border};
     ${media.laptop} {
         grid-row: auto;
         border-radius: 0 0 20px 20px;
@@ -121,6 +122,7 @@ export const PhotoWrapper = styled(motion.div)`
     width: 100%;
     border: 3px solid ${props => props.theme.border}; 
     border-radius: 0 20px 20px 0;
+    box-shadow: 3px 3px 1px ${props => props.theme.border};
     overflow: hidden;   
     .photo {
         height: 100%;

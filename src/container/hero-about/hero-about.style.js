@@ -73,10 +73,10 @@ export const Selfie = styled(motion.div)`
     background-size: 100% 100%;
     background-repeat: no-repeat;
     opacity: 0.75;
-    -webkit-mask: url(${images.paintblob});
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    -webkit-mask-position:auto;
+    mask: url(${images.paintblob});
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    mask-position:auto;
 `
 
 export const BannerRowTop = styled.div`

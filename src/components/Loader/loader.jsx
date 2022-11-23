@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-// constant
-import { variants } from '../../constants'
+// variants
+import { loaderVariants } from "../../variants"
 // styles
 import { LoaderOverlay, LoaderTexts, LettersContainer, Loading } from './loader.style'
 
@@ -22,7 +22,7 @@ const Letters = ({ letters, onAnimationComplete }) => {
                 <motion.div
                     className="loader-text-wrap"
                     key={'letter' + index}
-                    variants={variants.loaderVariants.portfolio}>
+                    variants={loaderVariants.portfolio}>
                     <motion.span className="loader-text">{letter}</motion.span>
                 </motion.div>
             )}
@@ -50,14 +50,14 @@ export const Loader = ({ setIsLoading }) => {
                     exit='exit'
                 >
                     <Loading
-                        variants={variants.loaderVariants.loadingFinished}
+                        variants={loaderVariants.loadingFinished}
                         onAnimationComplete={() => setLoading(false)}
                     >
-                        <motion.span className='loading-text' variants={variants.loaderVariants.loadingText}>Loading...</motion.span>
-                        <motion.span className="loading-bar-track" variants={variants.loaderVariants.loadingText}>
+                        <motion.span className='loading-text' variants={loaderVariants.loadingText}>Loading...</motion.span>
+                        <motion.span className="loading-bar-track" variants={loaderVariants.loadingText}>
                             <motion.span
                                 className="loading-bar-thumb"
-                                variants={variants.loaderVariants.loadingThumb}
+                                variants={loaderVariants.loadingThumb}
                             >
                             </motion.span>
                         </motion.span>

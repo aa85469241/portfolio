@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 // constants
-import { variants } from '../../constants'
+import { inViewVariants } from '../../variants'
 // components   
 import { AnimeTrigger, FramerScroll, SlickSlider } from '../../components'
 // hooks
@@ -23,15 +23,15 @@ const Experience = () => {
                 <Root>
                     <motion.div
                         className="title-wrapper"
-                        variants={variants.inViewVariants.zoomInFromX}
+                        variants={inViewVariants.zoomInFromX}
                         transition={{ duration: .5 }}
                     >
                         <motion.h1 className="experience-title">Experiences</motion.h1>
                     </motion.div>
                     {!isMatch ? <FramerScroll /> : <SlickSlider />}
                 </Root>
-            </AnimeTrigger >
-        </ExpContainer >
+            </AnimeTrigger>
+        </ExpContainer>
     )
 }
 

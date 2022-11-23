@@ -118,8 +118,8 @@ export const ProgressBar = styled(motion.div)`
     left: 20px;
     bottom: 0px;
     width: calc(100% - 40px);
-    height: 10px;
-    border-radius: 5px;
+    height: 15px;
+    border-radius: 15px;
     margin: 0;
     padding: 0;
     box-shadow: inset -2px -2px 5px var(--clr-white),

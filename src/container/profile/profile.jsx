@@ -6,7 +6,9 @@ import { AnimatePresence, motion, useCycle } from 'framer-motion'
 // components
 import { AnimeTrigger, Button } from '../../components'
 // constant
-import { images, variants } from '../../constants'
+import { images } from '../../constants'
+// variants
+import { inViewVariants } from '../../variants'
 // context
 import { useCursor } from '../../context/cursorContext'
 // hooks
@@ -46,21 +48,21 @@ const Profile = ({ onDisplay, setOnDisplay }) => {
                 <div className={`profile_wrapper ${display && 'resume-toggleOn'}`}>
                     <IntroSection
                         className={`${display && 'resume-toggleOn'}`}
-                        variants={variants.inViewVariants.zoomInFromX}
+                        variants={inViewVariants.zoomInFromX}
                         transition={{ duration: .5 }}
                     >
                         <motion.div
                             className='intro_wrapper'
                             custom={.1}
-                            variants={variants.inViewVariants.stagger}
+                            variants={inViewVariants.stagger}
                         >
                             <motion.h3 className='intro_title'
-                                variants={variants.inViewVariants.zoomInFromX}
+                                variants={inViewVariants.zoomInFromX}
                                 transition={{ duration: .5 }}
                             >What about me</motion.h3>
                             <motion.p
                                 className="intro_content"
-                                variants={variants.inViewVariants.zoomInFromX}
+                                variants={inViewVariants.zoomInFromX}
                                 transition={{ duration: .5 }}
                             >
                                 Like a man walks into a mysterious place,
@@ -69,14 +71,14 @@ const Profile = ({ onDisplay, setOnDisplay }) => {
                             </motion.p>
                             <motion.span
                                 className='postscript'
-                                variants={variants.inViewVariants.zoomInFromX}
+                                variants={inViewVariants.zoomInFromX}
                                 transition={{ duration: .5 }}
                             >*Click resume on right hand side could toggle it on.</motion.span>
                         </motion.div>
                     </IntroSection>
                     <Buttons
                         className="button_wrapper"
-                        variants={variants.inViewVariants.zoomInFromY}
+                        variants={inViewVariants.zoomInFromY}
                         transition={{ duration: .5 }}>
                         <Button
                             btnType={`__rectangle ${display ? 'active' : ''}`}
@@ -105,7 +107,7 @@ const Profile = ({ onDisplay, setOnDisplay }) => {
                     </Buttons>
                     <PhotoWrapper
                         className={`${display && 'resume-toggleOn'}`}
-                        variants={variants.inViewVariants.zoomInFromXVerse}
+                        variants={inViewVariants.zoomInFromXVerse}
                         transition={{ duration: .5 }}
                     >
                         <motion.img
@@ -113,7 +115,7 @@ const Profile = ({ onDisplay, setOnDisplay }) => {
                             alt='selfie'
                             className="photo"
                             style={{ opacity: `${display ? 0 : 1}` }}
-                            variants={variants.inViewVariants.photo}
+                            variants={inViewVariants.photo}
                             transition={{ duration: .7 }}
                         />
                         <AnimatePresence>

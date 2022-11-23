@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react'
 import { AnimatePresence, motion, useSpring, useTransform, useViewportScroll } from 'framer-motion'
 // constants
-import { data, profileVariants } from '../../constants'
+import { data } from '../../constants'
+// variants
+import { profileVariants } from '../../variants'
 // components
 import { AnimeTrigger, SplitLetters } from '../../components'
 // hooks

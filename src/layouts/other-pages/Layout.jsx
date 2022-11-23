@@ -9,7 +9,9 @@ import { Cursor, Header } from '../../components'
 // context
 import { useGlobalStateContext } from '../../context/GlobalContext'
 //constants
-import { variants, images } from '../../constants'
+import { images } from '../../constants'
+//variants
+import { pageTransform } from '../../variants'
 
 const LayoutContainer = styled(motion.div)`
     position: relative;
@@ -49,7 +51,7 @@ export const Layout = ({ children }) => {
                 initial='initial'
                 animate='animate'
                 exit='exit'
-                variants={variants.pageTransform}
+                variants={pageTransform}
             >
                 <GlobalStyles />
                 <Header delaySec={1} />

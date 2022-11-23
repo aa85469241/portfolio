@@ -11,8 +11,7 @@ import { useCursor } from '../../context/cursorContext'
 // components
 import Navigation from './navigation/navigation'
 import { AnimeTrigger } from '../../components'
-// constant
-import { variants } from '../../constants'
+import { headerVariants } from '../../variants'
 
 
 
@@ -55,7 +54,7 @@ export const Header = ({ delaySec }) => {
                 <Container>
                     <AnimeTrigger threshold='0.5' delay={delaySec ? delaySec : 11}>
                         <Flex justify='space-between'>
-                            <Logo variants={variants.headerVariants.fadeOut} transition={{ duration: .5 }}>
+                            <Logo variants={headerVariants.fadeOut} transition={{ duration: .5 }}>
                                 <span
                                     className='logo-text'
                                     onMouseEnter={() => setCursorType('navigate')}
@@ -78,29 +77,16 @@ export const Header = ({ delaySec }) => {
                             <Menu
                                 className={`${open && 'is-open'}`}
                                 onClick={toggle}
-                                onMouseEnter={() => setCursorType('pointer turn-dark')}
-                                onMouseLeave={setCursorType}
-                                variants={variants.headerVariants.fadeOut}
+                                variants={headerVariants.fadeOut}
                             >
-                                <motion.span
-                                    className='menu-text'
-                                    initial={false}
-                                    animate={open ? 'open' : 'closed'}
-                                    variants={{
-                                        closed: { opacity: 1, transition: { duration: .5, delay: .7 } },
-                                        open: { opacity: 0, transition: { duration: .5 } }
-                                    }}
-                                >
-                                    menu
-                                </motion.span>
                                 <motion.div
                                     className='menu-bar-wrapper'
                                     initial={false}
                                     animate={open ? 'open' : 'closed'}
                                 >
-                                    <motion.span className='menu-bar' custom={1} variants={variants.headerVariants.menuBarBlock} />
-                                    <motion.span className='menu-bar' variants={variants.headerVariants.menuBarMiddle} />
-                                    <motion.span className='menu-bar' custom={-1} variants={variants.headerVariants.menuBarBlock} />
+                                    <motion.span className='menu-bar' custom={1} variants={headerVariants.menuBarBlock} />
+                                    <motion.span className='menu-bar' variants={headerVariants.menuBarMiddle} />
+                                    <motion.span className='menu-bar' custom={-1} variants={headerVariants.menuBarBlock} />
                                 </motion.div>
                             </Menu>
                         </Flex>

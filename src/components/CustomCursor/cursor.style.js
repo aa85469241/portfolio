@@ -15,6 +15,9 @@ export const Dot = styled.div`
     ${media.landscape} {
         display: none;
     }
+    &.none {
+        display: none;
+    }
     &.toggle_theme {
         width: 20px;
         height: 20px;
@@ -71,6 +74,9 @@ export const Outline = styled.div`
     pointer-events: none;
     z-index: 999;
     ${media.landscape} {
+        display: none;
+    }
+    &.none {
         display: none;
     }
     &.toggle_theme {

@@ -11,6 +11,13 @@ const reducer = (state, action) => {
                 currentTheme: action.theme,
             }
         }
+        case "PUZZLE_ANIMATE": {
+            return {
+                ...state,
+                isLast: action.last,
+                exitAnimationComplete: action.complete,
+            }
+        }
         default: {
             throw new Error(`Undefined action type : ${action.type}`)
         }
@@ -24,6 +31,8 @@ export const GlobalProvider = ({ children }) => {
             window.localStorage.getItem('theme') === null
                 ? 'light'
                 : window.localStorage.getItem('theme'),
+        isLast: false,
+        exitAnimationComplete: false,
     })
 
     return (

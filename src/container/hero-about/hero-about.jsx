@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { motion, useSpring, useTransform, useViewportScroll } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 // constants
-import { profileVariants } from '../../constants'
+import { profileVariants } from '../../variants'
 // components
 import { AnimeTrigger } from '../../components'
 // context

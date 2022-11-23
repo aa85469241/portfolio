@@ -6,7 +6,9 @@ import { useMediaQuery } from '../../../hooks/useMediaQuery'
 // context
 import { useCursor } from '../../../context/cursorContext'
 // constants
-import { data, images, variants } from '../../../constants'
+import { data, images } from '../../../constants'
+// variants
+import { inViewVariants, cardVariants } from "../../../variants"
 // component
 import { Lock } from '../../../components'
 // styles
@@ -26,7 +28,7 @@ const Card = ({ group, children }) => {
             <svg viewBox="0 0 360 520" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <motion.path
                     d="M5.56029 39.4072C52.9134 39.4072 84.1233 38.1893 39.9989 4.08932C-5.63226 -34.8821 -1.97316 304.494 5.56029 479.054H318.736M346.44 462.593C343.6 462.593 340.819 462.597 338.108 462.613M338.108 462.613C295.615 462.857 270.523 465.855 312.001 497.911C323.677 507.882 332.126 493.083 338.108 462.613ZM338.108 462.613C355.506 373.998 352.046 152.841 346.44 22.9462H33.2637"
-                    variants={variants.cardVariants.path[group - 1]}
+                    variants={cardVariants.path[group - 1]}
                 />
             </svg>
             {children}
@@ -64,10 +66,6 @@ export const FramerScroll = () => {
 
     return (
         <Carousel ref={carousel}>
-            <Bar top lighten lower__layer variants={variants.inViewVariants.bar} />
-            <Bar bottom lighten lower__layer variants={variants.inViewVariants.bar} />
-            <Bar left lighten lower__layer variants={variants.inViewVariants.bar} />
-            <Bar right lighten lower__layer variants={variants.inViewVariants.bar} />
             <Scroller
                 className="inner-carousel"
                 ref={scroller}
@@ -97,7 +95,7 @@ export const FramerScroll = () => {
                         }
                         <motion.div
                             className='period'
-                            variants={variants.cardVariants.period[info.group - 1]}
+                            variants={cardVariants.period[info.group - 1]}
                         >
                             {info.date}
                         </motion.div>
@@ -108,14 +106,14 @@ export const FramerScroll = () => {
                                     <section className='experience_card_content'>
                                         <motion.h1
                                             className='experience_card_title'
-                                            variants={variants.cardVariants.title[info.group - 1]}
+                                            variants={cardVariants.title[info.group - 1]}
                                         >{info.title}</motion.h1>
                                         <motion.ul className='experience_card_detail'>
                                             {info.entries?.map((entry, i) =>
                                                 <motion.li
                                                     custom={i}
                                                     key={'line-' + i}
-                                                    variants={variants.cardVariants.entry[info.group - 1]}
+                                                    variants={cardVariants.entry[info.group - 1]}
                                                 >{entry.info}</motion.li>
                                             )}
                                         </motion.ul>
@@ -150,7 +148,7 @@ export const FramerScroll = () => {
                     </InfoContainer>
                 )}
             </Scroller>
-            <ProgressBar variants={variants.inViewVariants.progressBar}>
+            <ProgressBar variants={inViewVariants.progressBar}>
                 <motion.div className='progress-bar' style={{ width: barWidth }} />
             </ProgressBar>
         </Carousel>

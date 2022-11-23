@@ -11,6 +11,7 @@ export const HeaderNav = styled.header`
     z-index: 102;
     ${media.laptop} {
         height: 60px;
+        padding-top: 10px;
     }
 `
 
@@ -45,14 +46,18 @@ export const Logo = styled(motion.div)`
 
 export const Menu = styled(motion.div)`
     position: relative;
-    height: 4rem;
-    width: 10rem;
-    display: flex;
-    align-items: center;
+    border: 1px solid ${props => props.theme.border};
+    border-radius: 10px;
+    background-color: ${props => props.theme.background};
+    box-shadow: 3px 3px 1px ${props => props.theme.box_shadow};
+    padding: 15px;
     transition: 1s cubic-bezier(0.19, 0.38, 0.05, 1);
+    &:active {
+        transform: translate(3px, 3px);
+        transition: .1s;
+        box-shadow: 0px 0px 1px ${props => props.theme.box_shadow};
+    }
     .menu-bar-wrapper {
-        position: absolute;
-        left: 6rem;
         display: flex;
         flex-direction: column;
         align-items: center;
