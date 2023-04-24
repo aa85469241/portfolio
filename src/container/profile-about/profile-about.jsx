@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { AnimatePresence, motion, useSpring, useTransform, useViewportScroll } from 'framer-motion'
+import { Link } from 'react-router-dom'
 // constants
 import { data } from '../../constants'
 // variants
@@ -22,15 +23,22 @@ import {
     Next,
     Autobiography,
     BioHeading,
+    QRcode,
 } from './profile-about.style'
 
 
 
 const AboutProfile = () => {
-    const { scrollY } = useViewportScroll();
     const [nextHide, setNextHide] = useState(false)
     const isMatch = useMediaQuery('(max-width: 525px)')
+    const [selected, setSelected] = useState({
+        target: "",
+        imgSrc: null,
+        onHover: false,
+    });
 
+    // scroll animation //
+    const { scrollY } = useViewportScroll();
     // personalInfo 
     const personalRef = useRef(null);
     const [initialPosition, finalPosition] = useScrollElement(personalRef)
@@ -94,15 +102,36 @@ const AboutProfile = () => {
                         <WhatCanIDo variants={profileVariants.profile.heading}>
                             <motion.span className='skill-title'>What can I do</motion.span>
                         </WhatCanIDo>
-                        <div className="blanked"></div>
+                        <QRcode>
+                            <img
+                                src={selected.imgSrc}
+                                alt={selected.target}
+                                className={`qr-code 
+                                    ${selected.onHover ? "hovered" : ""}
+                                `}
+                            />
+                        </QRcode>
                         <Skills variants={profileVariants.profile.stagger} custom={.2}>
                             {data.skills.map((skill) =>
                                 <motion.span
-                                    className='skill-wrapper'
+                                    className={`skill-wrapper ${skill.src === null ? "" : "clickable"}`}
                                     key={skill.id}
                                     variants={profileVariants.profile.infoText}
+                                    onHoverStart={() => setSelected({ target: skill.title, imgSrc: skill.src, onHover: true, onActive: false })}
+                                    onHoverEnd={() => setSelected({ target: "", imgSrc: null, onHover: false })}
                                 >
-                                    <span className='skill-text'>{skill.title}</span>
+                                    {skill.src === null
+                                        ?
+                                        <span className="skill-text">
+                                            {skill.title}
+                                        </span>
+                                        :
+                                        <Link to={skill.uri} className="skill-link">
+                                            <span className="skill-text">
+                                                {skill.title}
+                                            </span>
+                                        </Link>
+                                    }
                                 </motion.span>
                             )}
                         </Skills>
@@ -153,7 +182,7 @@ const AboutProfile = () => {
                 </motion.div>
             </ProfileContent>
             <div className="spacer"></div>
-        </ProfileContainer >
+        </ProfileContainer>
     )
 }
 

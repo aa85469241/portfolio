@@ -60,6 +60,6 @@ export const Layout = ({ children }) => {
                     {children}
                 </main>
             </LayoutContainer>
-        </ThemeProvider >
+        </ThemeProvider>
     )
 }

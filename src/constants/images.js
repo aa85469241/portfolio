@@ -15,7 +15,8 @@ import stamp_outline from '../assets/images/stamp.svg'
 import skyline from '../assets/images/skyline.svg'
 import grid_bg from '../assets/images/grid_bg.svg'
 import silhouette_selfie from '../assets/images/silhouette_selfie.svg'
-
+import qr_bootstrap from '../assets/images/bootstrap.png'
+import qr_react from '../assets/images/react.png'
 
 const pictures = {
     selfie,
@@ -37,6 +38,8 @@ const pictures = {
     skyline,
     grid_bg,
     silhouette_selfie,
+    qr_bootstrap,
+    qr_react,
 }
 
 export default pictures

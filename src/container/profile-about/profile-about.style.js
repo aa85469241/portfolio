@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
 import { media } from '../../styles/BreakPoint'
+import { images } from '../../constants'
 
 
 export const ProfileContainer = styled.div`
@@ -53,10 +54,11 @@ export const PersonalInfo = styled(motion.div)`
     height: min-content;
     background-color: ${props => props.theme.backgroundDiff};
     padding: 2rem;
-    overflow: hidden;
-    z-index: 5;
+    border: 1px solid ${props => props.theme.background};
     box-shadow: 5px 5px 2px var(--clr-black),
                 0 0 2px var(--clr-black);
+    overflow: hidden;
+    z-index: 5;
     .info-wrapper {
         display: flex;
         flex-direction: column;
@@ -189,6 +191,7 @@ export const PersonalDetail = styled(motion.div)`
 `
 
 export const SkillContainer = styled(motion.div)`
+    position: relative;
     width: 90vw;
     height: 100vh;
     background-color: ${props => props.theme.background};
@@ -201,21 +204,35 @@ export const SkillContainer = styled(motion.div)`
                         inset -4px -4px 2px var(--clr-black);
     display: grid;
     grid-template-columns: 80% 20%;
-    grid-template-rows: fit-content 1fr 1fr;
+    grid-template-rows: 30% auto;
     gap: 1rem;
     align-items: center;
     justify-content: center;
     grid-template-areas:
         "title sidebar"
-        "main main"
         "main main";
-    .blanked {
-        grid-column: sidebar;
-        position: relative;
+    z-index: 5;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: ${props => props.theme.backgroundDiff};
+        border-radius: 50%;
+        box-shadow: inset 3px 2px 2px #000000;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
         width: 100%;
         height: 100%;
-        border: 10px double ${props => props.theme.border};
-        border-radius: 20px;    
+        background-image: url(${images.noise});
+        opacity: 0.05;
+        z-index: 3;
     }
     ${media.laptop} {
         grid-template-columns: 1fr;
@@ -273,13 +290,37 @@ export const WhatCanIDo = styled(motion.div)`
     }
 `
 
+export const QRcode = styled(motion.div)`
+    grid-column: sidebar;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 10px double ${props => props.theme.border};
+    border-radius: 20px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    .qr-code {
+        height: 100%;
+        object-fit: contain;
+        opacity: 0;
+        &.hovered {
+            opacity: 0.85;
+            transition: 1s;
+        }
+    }
+    ${media.laptop} {
+        display: none;
+    }   
+`
+
 export const Skills = styled(motion.div)`
     grid-area: main;
     position: relative;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-row: auto;
+    grid-template-rows: auto;
     border: 10px double ${props => props.theme.border};
     border-radius: 20px;
     .skill-wrapper {
@@ -287,12 +328,43 @@ export const Skills = styled(motion.div)`
         place-items: center;
         place-content: center;  
         width: 100%;
-        box-shadow: 2px 2px 5px ${props => props.theme.border};
-        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px ${props => props.theme.border},
+                    -1px -1px 2px ${props => props.theme.border};
+        &.clickable {
+            position: relative;
+            overflow: hidden;
+            z-index: 4;
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                background-color: hsl(0 5% 50% / 0.2);
+                mix-blend-mode: multiply;
+            }
+            &:hover {
+                background-color: ${props => props.theme.backgroundDiff};
+                .skill-text {
+                    color: ${props => props.theme.background};
+                }
+            }
+        }
+        .skill-link {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 4;
+        }
         .skill-text {
             color: ${props => props.theme.text};
             font-size: var(--step-page-about-skill);
             font-family: var(--font-family-main);
+            text-transform: capitalize;
+            white-space: nowrap;
         }
     }
     ${media.laptop} {

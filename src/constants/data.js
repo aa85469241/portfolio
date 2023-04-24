@@ -1,3 +1,5 @@
+import { images } from ".";
+
 const experiences = [
     {
         group: 1,
@@ -172,12 +174,15 @@ const mailSvgPath = [
 
 // about page
 const skills = [
-    { id: "sk-1", title: "javascript" },
-    { id: "sk-2", title: "python" },
-    { id: "sk-3", title: "html" },
-    { id: "sk-4", title: "css/scss" },
-    { id: "sk-5", title: "mysql" },
-    { id: "sk-6", title: "ReactJS" },
+    { id: "sk-1", title: "Bootstrap", src: images.qr_bootstrap, uri: "https://meek-custard-afa4c1.netlify.app" },
+    { id: "sk-2", title: "python", src: null },
+    { id: "sk-3", title: "html", src: null },
+    { id: "sk-4", title: "javascript", src: null },
+    { id: "sk-5", title: "Typescript", src: null },
+    { id: "sk-6", title: "ReactJS", src: images.qr_react, uri: "https://resilient-youtiao-6ff326.netlify.app" },
+    { id: "sk-7", title: "css/scss", src: null },
+    { id: "sk-8", title: "React-Native", src: images.qr_react, uri: "" },
+    { id: "sk-9", title: "mysql", src: null },
 ];
 
 const autobiography = [
