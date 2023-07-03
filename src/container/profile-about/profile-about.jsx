@@ -126,11 +126,11 @@ const AboutProfile = () => {
                                             {skill.title}
                                         </span>
                                         :
-                                        <Link to={skill.uri} className="skill-link">
+                                        <a href={skill.uri} className="skill-link">
                                             <span className="skill-text">
                                                 {skill.title}
                                             </span>
-                                        </Link>
+                                        </a>
                                     }
                                 </motion.span>
                             )}
