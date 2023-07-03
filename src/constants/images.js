@@ -17,6 +17,7 @@ import grid_bg from '../assets/images/grid_bg.svg'
 import silhouette_selfie from '../assets/images/silhouette_selfie.svg'
 import qr_bootstrap from '../assets/images/bootstrap.png'
 import qr_react from '../assets/images/react.png'
+import qr_react_native from '../assets/images/react_native.png'
 
 const pictures = {
     selfie,
@@ -40,6 +41,7 @@ const pictures = {
     silhouette_selfie,
     qr_bootstrap,
     qr_react,
+    qr_react_native,
 }
 
 export default pictures

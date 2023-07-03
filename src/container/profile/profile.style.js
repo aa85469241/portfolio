@@ -50,7 +50,7 @@ export const ProfileContainer = styled.div`
 
 export const IntroSection = styled(motion.section)`
     /* grid-area: section; */
-    grid-column: 1 / 2
+    grid-column: 1 / 2;
     position: relative;
     width: 100%;
     height: 100%;
@@ -96,6 +96,9 @@ export const IntroSection = styled(motion.section)`
     }
     ${media.mobile} {
         padding: 2rem 1rem;
+        .intro_wrapper {
+            gap: 5px;
+        }
     }
 `
 

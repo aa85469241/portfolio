@@ -181,7 +181,7 @@ const skills = [
     { id: "sk-5", title: "Typescript", src: null },
     { id: "sk-6", title: "ReactJS", src: images.qr_react, uri: "https://resilient-youtiao-6ff326.netlify.app" },
     { id: "sk-7", title: "css/scss", src: null },
-    { id: "sk-8", title: "React-Native", src: images.qr_react, uri: "" },
+    { id: "sk-8", title: "React-Native", src: images.qr_react_native, uri: "https://sensational-bublanina-b973c8.netlify.app" },
     { id: "sk-9", title: "mysql", src: null },
 ];
 
