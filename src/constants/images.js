@@ -1,6 +1,7 @@
 import selfie from '../assets/images/selfie.jpg'
 import crack from '../assets/images/crack.svg'
 import noise from '../assets/images/noise.gif'
+import dot_backdrop from '../assets/images/dot_backdrop.jpg'
 import selfieBanner from '../assets/images/selfie-banner.webp'
 import paintblob from '../assets/images/paintblob.webp'
 import phone from '../assets/images/phone.png'
@@ -23,6 +24,7 @@ const pictures = {
     selfie,
     crack,
     noise,
+    dot_backdrop,
     selfieBanner,
     paintblob,
     phone,

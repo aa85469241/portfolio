@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { media } from '../../../styles/BreakPoint'
 import { motion } from 'framer-motion'
+import { images } from '../../../constants'
 
 export const NavMenu = styled(motion.nav)`
     position: fixed;
@@ -9,6 +10,10 @@ export const NavMenu = styled(motion.nav)`
     width: 40%;
     height: calc(100vh - 50px);
     background-color: #DCD9D4;
+    background-image: url(${images.dot_backdrop});
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
     border: 1px solid var(--clr-black);
     box-shadow: 2px 2px 2px var(--clr-black);
     transform-origin: top right;
